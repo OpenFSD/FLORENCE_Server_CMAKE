@@ -1,5 +1,5 @@
 # FLORENCE
-## Server For Full Stack Development
+## Server and Buffer, For Full Stack Development
 ### C++
 
 ### Using Windows 10
