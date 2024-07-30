@@ -8,9 +8,9 @@
 #include "Input.h"
 #include "LaunchConcurrency.h"
 #pragma once
+#include <vector>
 #include "Output.h"
 #include "user_files/Praise0_Input.h"
-#include <vector>
 #include "WriteEnable.h"
 
 namespace FLORENCE

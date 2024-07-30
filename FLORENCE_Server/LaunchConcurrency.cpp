@@ -8,6 +8,7 @@ FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::LaunchCo
 )
 {
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
+    while (ptr_Control_Of_LaunchConcurrency == nullptr) { /* wait untill created */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::~LaunchConcurrency()
@@ -64,7 +65,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::thr
     }
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* get_Control_Of_LaunchConcurrency()
+class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::get_Control_Of_LaunchConcurrency()
 {
     return ptr_Control_Of_LaunchConcurrency;
 }

@@ -8,6 +8,7 @@ FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::WriteEnable(
 )
 {
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable(ptr_Global_pass, ptr_MyNumImplementedCores);
+    while (ptr_Control_Of_WriteEnable == nullptr) { /* wait untill created */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::~WriteEnable()

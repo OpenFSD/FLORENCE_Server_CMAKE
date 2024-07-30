@@ -129,7 +129,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::thre
     }
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespond* get_Control_Of_ListenRespond()
+class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespond* FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::get_Control_Of_ListenRespond()
 {
     return ptr_Control_Of_ListenRespond;
 }

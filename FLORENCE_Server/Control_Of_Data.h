@@ -1,7 +1,8 @@
 #pragma once
+#include <vector>
 #include "Input.h"
 #include "Output.h"
-#include <vector>
+
 
 namespace FLORENCE
 {

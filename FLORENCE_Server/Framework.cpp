@@ -1,6 +1,6 @@
 #include "Framework.h"
 
-class FLORENCE::FrameworkSpace::Server* ptr_Server = nullptr;
+//class FLORENCE::FrameworkSpace::Server* ptr_Server = nullptr;
 
 FLORENCE::Framework::Framework()
 {

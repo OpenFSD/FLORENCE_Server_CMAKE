@@ -1,6 +1,6 @@
 #pragma once
-#include "Global.h"
 #include <array>
+#include "Global.h"
 
 namespace FLORENCE
 {

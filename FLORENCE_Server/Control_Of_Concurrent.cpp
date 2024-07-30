@@ -1,17 +1,15 @@
 #include "Control_Of_Concurrent.h"
 
-using namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace;
-
-Control_Of_Concurrent::Control_Of_Concurrent()
+FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::Control_Of_Concurrent()
 {
 
 }
-Control_Of_Concurrent::~Control_Of_Concurrent()
+FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::~Control_Of_Concurrent()
 {
 
 }
 
-void Control_Of_Concurrent::select_Concurrent_Algorithm_Given_PraiseEventId(
+void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::select_Concurrent_Algorithm_Given_PraiseEventId(
 	int* ptr_praiseEventId,
 	Praise0_Algorithm* ptr_Algorithm_Subset,
 	FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_Input_Subset,

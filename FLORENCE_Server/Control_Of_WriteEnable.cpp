@@ -260,7 +260,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Cont
     else
     {
         int* ptr_count = new int(0);
-        while (*ptr_count < 20)
+        while (*ptr_count < 20)//TODO record till flag change
         {
             ptr_count = ptr_count + 1;
         }

@@ -11,8 +11,11 @@ FLORENCE::FrameworkSpace::ServerSpace::Execute::Execute(
 )
 {
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute(ptr_MyNumImplementedCores);
+    while (ptr_Control_Of_Execute == nullptr) { /* wait untill created */ }
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
+    while (ptr_LaunchConcurrency == nullptr) { /* wait untill created */ }
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable(ptr_Global, ptr_MyNumImplementedCores);
+    while (ptr_WriteEnable == nullptr) { /* wait untill created */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::Execute::~Execute()
@@ -30,7 +33,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise()
 {
     class FLORENCE::FrameworkSpace::Server* ptr_Server = FLORENCE::Framework::get_Server();
     ptr_Thread_WithCoreId[0] = new std::thread(
-        AlgorithmsSpace::ListenRespond::thread_IO_ListenDistribute,
+        FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::thread_IO_ListenDistribute,
         unsigned char(0),
         ptr_Server->get_Global()->get_NumCores(),
         ptr_Server->get_Execute()->get_Control_Of_Execute(),
@@ -50,7 +53,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise()
     for (unsigned char index = 1; index <= *ptr_Server->get_Global()->get_NumCores(); index++)
     {
         ptr_Thread_WithCoreId[index] = new std::thread(
-            AlgorithmsSpace::Concurrent::thread_Concurrency,
+            FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_Concurrency,
             unsigned char(index),
             ptr_Server->get_Global()->get_NumCores(),
             ptr_Server->get_Algorithms()->get_Concurren_Array(index),

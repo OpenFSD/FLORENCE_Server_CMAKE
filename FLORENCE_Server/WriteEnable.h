@@ -1,5 +1,5 @@
 #pragma once
-#include "Control_Of_WriteEnable.cpp"
+#include "Control_Of_WriteEnable.h"
 #include "Global.h"
 
 namespace FLORENCE
