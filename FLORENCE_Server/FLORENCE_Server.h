@@ -2,7 +2,9 @@
 // or project specific include files.
 
 #pragma once
-
+#include "Framework.h"
 #include <iostream>
-
-// TODO: Reference additional headers your program requires here.
+namespace FLORENCE
+{
+	static class FLORENCE::Framework* ptr_Framework;
+}

@@ -1,3 +1,4 @@
+#pragma once
 #include "Server.h"
 
 namespace FLORENCE
@@ -7,11 +8,11 @@ namespace FLORENCE
 	public:
 		Framework();
 		virtual ~Framework();
-		static class Server* get_Server();
+		static class FLORENCE::FrameworkSpace::Server* get_Server();
 
 	protected:
 
 	private:
-		static class Server* ptr_Server;
+		static class FLORENCE::FrameworkSpace::Server* ptr_Server;
 	};
 }

@@ -1,0 +1,39 @@
+#pragma once
+#include <array>
+#include "Control_Of_Execute.h"
+#include "Global.h"
+#include "LaunchConcurrency.h"
+#include "Server.h"
+#include <thread>
+#include "WriteEnable.h"
+
+namespace FLORENCE
+{
+    namespace FrameworkSpace
+    {
+        namespace ServerSpace
+        {
+            class Execute
+            {
+            public:
+                Execute(
+                    unsigned char* ptr_MyNumImplementedCores,
+                    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
+                );
+                virtual ~Execute();
+                static void initialise(class FLORENCE::FrameworkSpace::Server* ptr_Server);
+                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* get_Control_Of_Execute();
+                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* get_LaunchConcurrency();
+                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* get_WriteEnable();
+
+            protected:
+
+            private:
+                static class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute;
+                static class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency;
+                static std::thread* ptr_Thread_WithCoreId[4];//NUMBER OF CORES
+                static class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable;
+            };
+        }
+    }
+}
