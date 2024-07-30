@@ -6,7 +6,7 @@ FLORENCE::Framework::Framework()
 {
 	class FLORENCE::FrameworkSpace::Server* ptr_Server = new class FLORENCE::FrameworkSpace::Server();
 	while (ptr_Server == nullptr) { /* wait untill created */ }
-	this->get_Server()->initialise(this->get_Server());
+	FLORENCE::Framework::get_Server()->initialise();
 }
 
 FLORENCE::Framework::~Framework()

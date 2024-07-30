@@ -23,9 +23,9 @@ FLORENCE::FrameworkSpace::Server::~Server()
     delete ptr_Data;
     delete ptr_Execute;
 }
-void FLORENCE::FrameworkSpace::Server::initialise(class FLORENCE::FrameworkSpace::Server* ptr_Server)
+void FLORENCE::FrameworkSpace::Server::initialise()
 {
-    ptr_Server->get_Execute()->initialise(ptr_Server);
+    FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise();
 }
 
 class FLORENCE::FrameworkSpace::ServerSpace::Algorithms* FLORENCE::FrameworkSpace::Server::get_Algorithms()

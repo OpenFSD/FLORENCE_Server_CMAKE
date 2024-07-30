@@ -5,6 +5,7 @@ class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace
 FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::ListenRespond()
 {
     class ListenRespondSpace::Control_Of_ListenRespond* ptr_Control_Of_ListenRespond = new class ListenRespondSpace::Control_Of_ListenRespond();
+    while (ptr_Control_Of_ListenRespond == nullptr) { /* wait untill class constructed */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::~ListenRespond()

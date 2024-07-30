@@ -26,9 +26,9 @@ FLORENCE::FrameworkSpace::ServerSpace::Execute::~Execute()
     }//NUMBER OF CORES
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise(class FLORENCE::FrameworkSpace::Server* ptr_Server)
+void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise()
 {
-    /*
+    class FLORENCE::FrameworkSpace::Server* ptr_Server = FLORENCE::Framework::get_Server();
     ptr_Thread_WithCoreId[0] = new std::thread(
         AlgorithmsSpace::ListenRespond::thread_IO_ListenDistribute,
         unsigned char(0),
@@ -66,7 +66,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise(class FLORENCE::
             ptr_Server->get_Execute()->get_LaunchConcurrency(),
             ptr_Server->get_Data()->get_DistributeBuffer(),
             ptr_Server->get_Data()->get_StackOfDistributeBuffer(),
-            ptr_Server->get_Algorithms()->get_Algorithm_Subset(),
+            ptr_Server->get_Algorithms()->get_Concurren_Array(index)->get_Algorithm_Subset(),
             ptr_Server->get_Data()->get_PraiseBuffer()->get_InputBufferSubset(),
             ptr_Server->get_Data()->get_DistributeBuffer()->get_OutputBuffer_Subset(),
             ptr_Server->get_Execute()->get_WriteEnable()
@@ -76,7 +76,6 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise(class FLORENCE::
     {
 
     }
-    */
 }
 
 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* FLORENCE::FrameworkSpace::ServerSpace::Execute::get_Control_Of_Execute()

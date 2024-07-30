@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include "Control_Of_Execute.h"
+#include "Framework.h"
 #include "Global.h"
 #include "LaunchConcurrency.h"
 #include "Server.h"
@@ -21,7 +22,7 @@ namespace FLORENCE
                     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
                 );
                 virtual ~Execute();
-                static void initialise(class FLORENCE::FrameworkSpace::Server* ptr_Server);
+                static void initialise();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* get_Control_Of_Execute();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* get_LaunchConcurrency();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* get_WriteEnable();

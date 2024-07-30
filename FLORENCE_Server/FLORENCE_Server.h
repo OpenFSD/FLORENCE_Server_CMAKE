@@ -6,5 +6,5 @@
 #include <iostream>
 namespace FLORENCE
 {
-	static class FLORENCE::Framework* ptr_Framework;
+	static class FLORENCE::Framework* ptr_Framework = nullptr;
 }

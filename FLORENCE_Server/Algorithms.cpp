@@ -21,6 +21,7 @@ FLORENCE::FrameworkSpace::ServerSpace::Algorithms::Algorithms(unsigned char* ptr
         while (ptr_Concurrent[index] == nullptr) { /* wait untill class constructed */ }
     }//NUMBER OF CONCURRENT CORES
     class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent** ptr_Array_Concurrent = ptr_Concurrent;
+    while (ptr_Array_Concurrent == nullptr) { /* wait untill class constructed */ }
     class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond* ptr_ListenRespond = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond();
     while (ptr_ListenRespond == nullptr) { /* wait untill class constructed */ }
 //===

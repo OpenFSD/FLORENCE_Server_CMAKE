@@ -7,8 +7,11 @@ int* ptr_out_PraiseEventId = nullptr;
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::Output()
 {
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* ptr_Control_Of_Output = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output();
+    while (ptr_Control_Of_Output == nullptr) { /* wait untill created */ }
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* praiseOutputBuffer_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output();//ToDo CLASS T
+    while (praiseOutputBuffer_Subset == nullptr) { /* wait untill created */ }
     int* ptr_out_PraiseEventId = new int(0);
+    while (ptr_out_PraiseEventId == nullptr) { /* wait untill created */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::~Output()

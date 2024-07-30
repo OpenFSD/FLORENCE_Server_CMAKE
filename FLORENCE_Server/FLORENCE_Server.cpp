@@ -4,7 +4,7 @@
 
 namespace FLORENCE
 {
-    class FLORENCE::Framework* ptr_Framework = nullptr;
+    //class FLORENCE::Framework* ptr_Framework = nullptr;
 
     int main()
     {
