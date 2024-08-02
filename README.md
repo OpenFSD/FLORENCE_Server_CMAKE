@@ -9,7 +9,7 @@ Version: 22H2
 
 ### Using Microsoft Visual Studio Enterprise 2022 (64-bit) 
 
-Version 17.10.4
+Version 17.10.5
 
 ## Development History
 FLORENCE_Template-For_Server
