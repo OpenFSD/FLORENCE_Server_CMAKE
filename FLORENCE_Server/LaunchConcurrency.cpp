@@ -1,19 +1,15 @@
 #include "LaunchConcurrency.h"
 
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency = nullptr;
+class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::ptr_Control_Of_LaunchConcurrency = nullptr;
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::LaunchConcurrency(
-    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
-    unsigned char* ptr_MyNumImplementedCores
-)
+FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::LaunchConcurrency()
 {
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
-    while (ptr_Control_Of_LaunchConcurrency == nullptr) { /* wait untill created */ }
+
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::~LaunchConcurrency()
 {
-    delete ptr_Control_Of_LaunchConcurrency;
+    delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::ptr_Control_Of_LaunchConcurrency;
 }
 
 void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::concurrent_Thread_Start(
@@ -23,13 +19,22 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::con
     unsigned char* ptr_NumImplementedCores
 )
 {
-    ptr_Control_Of_LaunchConcurrency->launchEnable_Request(ptr_Control_Of_LaunchConcurrency, ptr_concurrent_CoreId, ptr_Global);
-    ptr_Control_Of_LaunchConcurrency->launchQue_Update(ptr_Control_Of_LaunchConcurrency, ptr_NumImplementedCores);
-    ptr_Control_Of_LaunchConcurrency->launchEnable_SortQue(ptr_Control_Of_LaunchConcurrency, ptr_Global, ptr_NumImplementedCores);
-    ptr_Control_Of_LaunchConcurrency->launchEnable_Activate(ptr_Control_Of_LaunchConcurrency, ptr_Global);
-    ptr_Control_Of_LaunchConcurrency->launchQue_Update(ptr_Control_Of_LaunchConcurrency, ptr_NumImplementedCores);
-    ptr_Control_Of_LaunchConcurrency->launchEnable_SortQue(ptr_Control_Of_LaunchConcurrency, ptr_Global, ptr_NumImplementedCores);
+    ptr_Control_Of_LaunchConcurrency->launchEnable_Request(ptr_concurrent_CoreId, ptr_Global);
+    ptr_Control_Of_LaunchConcurrency->launchQue_Update(ptr_NumImplementedCores);
+    ptr_Control_Of_LaunchConcurrency->launchEnable_SortQue(ptr_Global, ptr_NumImplementedCores);
+    ptr_Control_Of_LaunchConcurrency->launchEnable_Activate(ptr_Global);
+    ptr_Control_Of_LaunchConcurrency->launchQue_Update(ptr_NumImplementedCores);
+    ptr_Control_Of_LaunchConcurrency->launchEnable_SortQue(ptr_Global, ptr_NumImplementedCores);
     ptr_Control_Of_LaunchConcurrency->setFlag_PraisingLaunch(false);
+}
+
+void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::initialise_Control(
+    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+    unsigned char* ptr_MyNumImplementedCores
+)
+{
+    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
+    while (ptr_Control_Of_LaunchConcurrency == nullptr) { /* wait untill created */ }
 }
 
 void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::thread_End(

@@ -1,6 +1,6 @@
 #include "Control_Of_ListenRespond.h"
 
-bool ptr_Flag_IO_ThreadState = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespond::flag_IO_ThreadState = false;
 
 FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespond::Control_Of_ListenRespond()
 {

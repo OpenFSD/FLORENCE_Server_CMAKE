@@ -21,7 +21,7 @@ namespace FLORENCE
                 //===
 //===
                 class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* get_Praise0_Algorithm();
-                //===
+                //===5
                 //===
 
             protected:

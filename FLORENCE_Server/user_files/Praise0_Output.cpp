@@ -1,6 +1,6 @@
 #include "Praise0_Output.h"
 
-bool praise0_Result = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output::praise0_Result = false;
 
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output::Praise0_Output()
 {

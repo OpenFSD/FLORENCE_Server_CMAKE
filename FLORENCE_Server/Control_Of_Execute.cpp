@@ -1,7 +1,7 @@
 #include "Control_Of_Execute.h"
 
-bool flag_SystemInitialised = bool(true);
-bool flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
+bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::flag_SystemInitialised = bool(true);
+bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
 
 FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::Control_Of_Execute(unsigned char* ptr_MyNumImplementedCores)
 {

@@ -1,12 +1,12 @@
 #include "Control_Of_Data.h"
 
-bool flag_InputStackLoaded = false;
-bool flag_OutputStackLoaded = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::flag_InputStackLoaded = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::flag_OutputStackLoaded = false;
 
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::Control_Of_Data()
 {
-    flag_InputStackLoaded = bool(false);
-    flag_OutputStackLoaded = bool(false);
+    bool flag_InputStackLoaded = bool(false);
+    bool flag_OutputStackLoaded = bool(false);
 }
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::~Control_Of_Data()
 {
@@ -24,8 +24,8 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::load_Inp
     }
 }
 void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromStackOfInputPraises(
-    Input* referenceForCore,
-    std::vector<Input*>* ptr_inputStack
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* referenceForCore,
+    std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_inputStack
 )
 {
     referenceForCore = ptr_inputStack->at(0);
@@ -34,8 +34,8 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromS
     ptr_inputStack->erase(ptr_inputStack->begin() + 1);
 }
 void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromStackOfOutput(
-    Output* distributeBuffer,
-    std::vector<Output*>* ptr_outputStack
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* distributeBuffer,
+    std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack
 )
 {
     distributeBuffer->setPraiseEventId(*ptr_outputStack->at(1)->getPraiseEventId());
@@ -43,8 +43,8 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromS
     ptr_outputStack->erase(ptr_outputStack->begin() + 1);
 }
 void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToStackOfInputPraises(
-    std::vector<Input*>* ptr_InputStack,
-    Input* ptr_PraiseBuffer
+    std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_InputStack,
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_PraiseBuffer
 )
 {
     ptr_InputStack->push_back(ptr_InputStack->at(0));
@@ -57,8 +57,8 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToSt
 }
 
 void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToStackOfOutput(
-    std::vector<Output*>* ptr_outputStack,
-    Output* ptr_referenceForCore
+    std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack,
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_referenceForCore
 )
 {
     ptr_outputStack->push_back(ptr_outputStack->at(0));

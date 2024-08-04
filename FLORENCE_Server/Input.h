@@ -15,6 +15,7 @@ namespace FLORENCE
                 public:
                     Input();
                     virtual ~Input();
+                    static void initialise_Control();
                     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input* get_Control_Of_Input();
                     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* get_InputBufferSubset();//TODO CLASS T
                     int* getPraiseEventId();

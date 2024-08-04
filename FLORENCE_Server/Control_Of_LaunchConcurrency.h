@@ -22,26 +22,23 @@ namespace FLORENCE
                         virtual ~Control_Of_LaunchConcurrency();
 
                         void launchEnable_Activate(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
 
                         );
                         void launchEnable_Request(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             unsigned char* concurrent_CoreId,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
                         );
                         void launchEnable_SortQue(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
                             unsigned char* ptr_NumImplementedCores
                         );
                         void launchQue_Update(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             unsigned char* ptr_NumImplementedCores
                         );
 
                         unsigned char* get_concurrent_CoreId_Index();
+                        unsigned char* get_coreId_To_Launch();
                         bool getFlag_ConcurrentCoreState(unsigned char* concurrent_CoreId);
                         bool getFlag_PraisingLaunch();
                         unsigned char* get_new_concurrent_CoreId_Index();
@@ -56,11 +53,9 @@ namespace FLORENCE
 
                     private:
                         void dynamicStagger(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             unsigned char* ptr_coreId
                         );
                         void launchEnable_ShiftQueValues(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                             unsigned char* concurrent_CoreId_A,
                             unsigned char* concurrent_CoreId_B
                         );
@@ -68,7 +63,7 @@ namespace FLORENCE
                         int* get_count_LaunchActive_For(unsigned char* concurrent_CoreId);
                         int* get_count_LaunchIdle_For(unsigned char* concurrent_CoreId);
                         unsigned char* getFlag_CoreId_Of_CoreToLaunch();
-                        unsigned char* get_que_CoreToLaunch(unsigned char* concurrent_CoreId);
+                        unsigned char* get_que_CoreToLaunch(unsigned char* index);
 
                         void set_count_LaunchActive_For(unsigned char* concurrent_CoreId, int value);
                         void set_count_LaunchIdle_For(unsigned char* concurrent_CoreId, int value);

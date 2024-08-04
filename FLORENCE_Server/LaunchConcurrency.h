@@ -13,17 +13,19 @@ namespace FLORENCE
                 class LaunchConcurrency
                 {
                 public:
-                    LaunchConcurrency(
-                        class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global, 
-                        unsigned char* ptr_MyNumImplementedCores
-                    );
+                    LaunchConcurrency();
                     virtual ~LaunchConcurrency();
+
                     void concurrent_Thread_Start(
                         class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                         unsigned char* ptr_concurrent_CoreId,
                         class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
                         unsigned char* ptr_NumImplementedCores
 
+                    );
+                    static void initialise_Control(
+                        class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+                        unsigned char* ptr_MyNumImplementedCores
                     );
                     void thread_End(
                         class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,

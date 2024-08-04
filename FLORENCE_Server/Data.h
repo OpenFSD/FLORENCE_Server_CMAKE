@@ -18,6 +18,7 @@ namespace FLORENCE
             public:
                 Data(unsigned char* ptr_NumberOfImplementedCores);
                 virtual ~Data();
+                static void initialise_Control();
                 class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data* get_Control_Of_Data();
                 class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* get_DistributeBuffer();
                 class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* get_InputRefferenceOfCore(unsigned char concurrent_coreId);
@@ -38,9 +39,11 @@ namespace FLORENCE
                 static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_PraiseBuffer;
                 static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_DistributeBuffer;
                 static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_InputRefferenceOfCore[3];//NUMBER OF CONCURRENT CORES
-                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input** ptr_Array_InputRefferenceOfCore;
+                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input** ptr_InputRefferenceOfCore_Array;
+                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_new_Input;
+                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_new_Output;
                 static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_OutputRefferenceOfCore[3];//NUMBER OF CONCURRENT CORES
-                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output** ptr_Array_OutputRefferenceOfCore;
+                static class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output** ptr_OutputRefferenceOfCore_Array;
                 static std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_StackOfInputPraise;
                 static std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_StackOfDistributeBuffer;
                 //===

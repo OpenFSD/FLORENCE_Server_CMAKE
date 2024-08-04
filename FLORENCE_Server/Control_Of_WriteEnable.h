@@ -20,24 +20,20 @@ namespace FLORENCE
                         );
                         ~Control_Of_WriteEnable();
                         void writeEnable_Activate(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* ptr_coreId,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
                             unsigned char* ptr_MyNumImplementedCores
                         );
                         void writeEnable_SortQue(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* ptr_MyNumImplementedCores,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
                         );
                         void writeEnable_Request(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* ptr_coreId,
                             unsigned char* ptr_MyNumImplementedCores,
                             class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
                         );
                         void writeQue_Update(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* ptr_MyNumImplementedCores
                         );
 
@@ -61,11 +57,9 @@ namespace FLORENCE
 
                     private:
                         void dynamicStagger(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* ptr_coreId
                         );
                         void writeEnable_ShiftQueValues(
-                            class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                             unsigned char* concurrent_CoreId_A,
                             unsigned char* concurrent_CoreId_B
                         );

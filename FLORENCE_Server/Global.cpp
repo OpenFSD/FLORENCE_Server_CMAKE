@@ -1,11 +1,11 @@
 #include "Global.h"
 
-bool flag_write_IDLE[2] = { false, false };
-bool flag_write_WAIT[2] = { false, false };
-bool flag_write_WRITE[2] = { false, false };
-bool flag_core_IDLE = false;
-bool flag_core_ACTIVE = false;
-unsigned char* ptr_num_Implemented_Cores = nullptr;
+bool FLORENCE::FrameworkSpace::ServerSpace::Global::flag_write_IDLE[2] = { false, false };
+bool FLORENCE::FrameworkSpace::ServerSpace::Global::flag_write_WAIT[2] = { false, false };
+bool FLORENCE::FrameworkSpace::ServerSpace::Global::flag_write_WRITE[2] = { false, false };
+bool FLORENCE::FrameworkSpace::ServerSpace::Global::flag_core_IDLE = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::Global::flag_core_ACTIVE = false;
+unsigned char* FLORENCE::FrameworkSpace::ServerSpace::Global::ptr_num_Implemented_Cores = nullptr;
 
 FLORENCE::FrameworkSpace::ServerSpace::Global::Global()
 {
@@ -19,7 +19,7 @@ FLORENCE::FrameworkSpace::ServerSpace::Global::Global()
 
 FLORENCE::FrameworkSpace::ServerSpace::Global::~Global()
 {
-    delete ptr_num_Implemented_Cores;
+    delete FLORENCE::FrameworkSpace::ServerSpace::Global::ptr_num_Implemented_Cores;
 }
 
 bool FLORENCE::FrameworkSpace::ServerSpace::Global::getConst_Core_ACTIVE()

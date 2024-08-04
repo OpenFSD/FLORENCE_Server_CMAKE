@@ -15,6 +15,7 @@ namespace FLORENCE
                 public:
                     Output();
                     virtual ~Output();
+                    static void initialise_Control();
                     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* get_Control_Of_Output();
                     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* get_OutputBuffer_Subset();//TODO CLASS T
                     int* getPraiseEventId();

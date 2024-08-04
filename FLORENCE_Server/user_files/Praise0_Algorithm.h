@@ -15,9 +15,9 @@ namespace FLORENCE
                 public:
                     Praise0_Algorithm();
                     virtual ~Praise0_Algorithm();
-                    void do_Praise0(
-                        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* objPtr_InSubSet,
-                        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* objPTr_OutSubSet
+                    void do_Praise(
+                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_In_SubSet,
+                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* ptr_Out_SubSet
                     );
 
                 protected:

@@ -1,20 +1,24 @@
 #include "Concurrent.h"
 
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* ptr_Control_Of_Concurrent = nullptr;
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* ptr_Algorithms_Subset = nullptr;//TODO CLASS T
+class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::ptr_Control_Of_Concurrent = nullptr;
+class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::ptr_Algorithms_Subset = nullptr;//TODO CLASS T
 
 FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::Concurrent()
 {
-    class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* ptr_Control_Of_Concurrent = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent();
-    while (ptr_Control_Of_Concurrent == nullptr) { /* wait untill class constructed */ }
     class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* ptr_Algorithms_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm();//TODO CLASS T
     while (ptr_Algorithms_Subset == nullptr) { /* wait untill class constructed */ }
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::~Concurrent()
 {
-    delete ptr_Control_Of_Concurrent;
-    delete ptr_Algorithms_Subset;
+    delete FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::ptr_Control_Of_Concurrent;
+    delete FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::ptr_Algorithms_Subset;
+}
+
+void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::initialise_Control()
+{
+    class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* ptr_Control_Of_Concurrent = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent();
+    while (ptr_Control_Of_Concurrent == nullptr) { /* wait untill class constructed */ }
 }
 
 void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_Concurrency(
@@ -25,6 +29,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data* ptr_Control_Of_Data,
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute,
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* ptr_Control_Of_Output,
     class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
     class FLORENCE::FrameworkSpace::ServerSpace::Data* ptr_Data,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
@@ -52,8 +57,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
                 ptr_Control_Of_WriteEnable,
                 &concurrent_coreId,
                 ptr_MyNumImplementedCores,
-                ptr_Global,
-                ptr_WriteEnable
+                ptr_Global
             );
             ptr_Control_Of_Data->popFromStackOfInputPraises(
                 ptr_Data->get_InputRefferenceOfCore(concurrent_coreId),
@@ -73,14 +77,18 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
                 ptr_MyNumImplementedCores,
                 ptr_Global
             );
-            //ToDo
-            ptr_Algorithm_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm();
-            ptr_Input_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input();
-            ptr_Output_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output();
-            //end
+            /*
+            prt_Control_Of_Concurrent->selectSet_Algorithm_Subset_For_Given_PraiseEventId(
+                ptr_Data->get_InputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
+                ptr_Concurrent
+            );
+            */
+/*            ptr_Control_Of_Output->selectSet_Output_Subset_For_Given_PraiseEventId(
+                ptr_Data->get_OutputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
+                ptr_Data->get_OutputRefferenceOfCore(concurrent_coreId)
+            );*/
             ptr_Concurrent->do_Concurrent_Algorithm_For_PraiseEventId(
-                ptr_InputBuffer->getPraiseEventId(),
-                prt_Control_Of_Concurrent,
+                ptr_Data->get_InputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
                 ptr_Algorithm_Subset,
                 ptr_Input_Subset,
                 ptr_Output_Subset
@@ -89,8 +97,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
                 ptr_Control_Of_WriteEnable,
                 &concurrent_coreId,
                 ptr_MyNumImplementedCores,
-                ptr_Global,
-                ptr_WriteEnable
+                ptr_Global
             );
             ptr_Control_Of_Data->pushToStackOfOutput(
                 ptr_OutputStack,
@@ -121,15 +128,12 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
 
 void  FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::do_Concurrent_Algorithm_For_PraiseEventId(
     int* ptr_praiseEventId,
-    class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* prt_Control_Of_Concurrent,
     class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* ptr_Algorithm_Subset,
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_Input_Subset,
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* ptr_Output_Subset
 )
 {
-    prt_Control_Of_Concurrent->select_Concurrent_Algorithm_Given_PraiseEventId(
-        ptr_praiseEventId,
-        ptr_Algorithm_Subset,
+    ptr_Algorithm_Subset->do_Praise(
         ptr_Input_Subset,
         ptr_Output_Subset
     );

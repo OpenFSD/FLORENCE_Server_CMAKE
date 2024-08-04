@@ -9,11 +9,9 @@ FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control
 
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::select_Concurrent_Algorithm_Given_PraiseEventId(
+void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::selectSet_Algorithm_Subset_For_Given_PraiseEventId(
 	int* ptr_praiseEventId,
-	Praise0_Algorithm* ptr_Algorithm_Subset,
-	FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_Input_Subset,
-	FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* ptr_Output_Subset
+	class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* ptr_Concurrent
 )
 {
 	switch (*ptr_praiseEventId)
@@ -21,10 +19,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Co
 		//===
 		//===	
 	case 0:
-		ptr_Algorithm_Subset->do_Praise0(
-			ptr_Input_Subset,
-			ptr_Output_Subset
-		);
+		ptr_Concurrent->set_Algorithm_Subset(new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm());
 		break;
 
 	case 1:

@@ -1,7 +1,7 @@
 #include "Praise0_Input.h"
 
-bool a = false;
-bool b = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::a = false;
+bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::b = false;
 
 FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::Praise0_Input()
 {

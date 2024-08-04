@@ -1,5 +1,9 @@
+#pragma once
+#include "Concurrent.h"
+#include "Control_Of_Concurrent.h"
 #include "Control_Of_Execute.h"
 #include "Control_Of_Data.h"
+#include "Control_Of_Input.h"
 #include "Control_Of_LaunchConcurrency.h"
 #include "Control_Of_ListenRespond.h"
 #include "Control_Of_WriteEnable.h"
@@ -7,7 +11,6 @@
 #include "Global.h"
 #include "Input.h"
 #include "LaunchConcurrency.h"
-#pragma once
 #include <vector>
 #include "Output.h"
 #include "user_files/Praise0_Input.h"
@@ -26,13 +29,18 @@ namespace FLORENCE
                 public:
                     ListenRespond();
                     virtual ~ListenRespond();
+                    static void initialise_Control();
                     static void thread_IO_ListenDistribute(
-                        unsigned char ptr_coreId,
+                        unsigned char coreId,
                         unsigned char* ptr_MyNumImplementedCores,
+                        class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* ptr_Concurrent,
+                        class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent* ptr_Control_Of_Concurrent,
                         class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute,
                         class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data* ptr_Control_Of_Data,
+                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input* ptr_Control_Of_Input,
                         class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
                         class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespond* ptr_Control_Of_ListenRespond,
+                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* ptr_Control_Of_Output,
                         class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
                         class FLORENCE::FrameworkSpace::ServerSpace::Data* ptr_Data,
                         class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,

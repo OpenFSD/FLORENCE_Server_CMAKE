@@ -1,39 +1,40 @@
 #include "Execute.h"
 
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute = nullptr;
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency = nullptr;
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable = nullptr;
-std::thread* ptr_Thread_WithCoreId[4] = { nullptr, nullptr, nullptr, nullptr };//NUMBER OF CORES
+class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_Control_Of_Execute = nullptr;
+class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_LaunchConcurrency = nullptr;
+class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_WriteEnable = nullptr;
+std::thread* FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_Thread_WithCoreId[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
 
 FLORENCE::FrameworkSpace::ServerSpace::Execute::Execute(
-    unsigned char* ptr_MyNumImplementedCores,
-    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
+    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+    unsigned char* ptr_MyNumImplementedCores
 )
 {
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute(ptr_MyNumImplementedCores);
-    while (ptr_Control_Of_Execute == nullptr) { /* wait untill created */ }
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
+    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency();
     while (ptr_LaunchConcurrency == nullptr) { /* wait untill created */ }
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable(ptr_Global, ptr_MyNumImplementedCores);
+    ptr_LaunchConcurrency->initialise_Control(ptr_Global, ptr_MyNumImplementedCores);
+
+    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable();
     while (ptr_WriteEnable == nullptr) { /* wait untill created */ }
+    ptr_WriteEnable->initialise_Control(ptr_Global, ptr_MyNumImplementedCores);
 }
 
 FLORENCE::FrameworkSpace::ServerSpace::Execute::~Execute()
 {
-    delete ptr_Control_Of_Execute;
-    delete ptr_LaunchConcurrency;
-    delete ptr_WriteEnable;
+    delete FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_Control_Of_Execute;
+    delete FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_LaunchConcurrency;
+    delete FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_WriteEnable;
     for (int index = 0; index < 4; index++)
     {
-        delete ptr_Thread_WithCoreId[index];
+        delete FLORENCE::FrameworkSpace::ServerSpace::Execute::ptr_Thread_WithCoreId[index];
     }//NUMBER OF CORES
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise()
+void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise_Threads()
 {
     class FLORENCE::FrameworkSpace::Server* ptr_Server = FLORENCE::Framework::get_Server();
     ptr_Thread_WithCoreId[0] = new std::thread(
-        FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond::thread_IO_ListenDistribute,
+        ptr_Server->get_Algorithms()->get_ListenRespond()->thread_IO_ListenDistribute,
         unsigned char(0),
         ptr_Server->get_Global()->get_NumCores(),
         ptr_Server->get_Execute()->get_Control_Of_Execute(),
@@ -79,6 +80,15 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise()
     {
 
     }
+}
+
+void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise_Control(
+    unsigned char* ptr_MyNumImplementedCores,
+    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
+)
+{
+    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute(ptr_MyNumImplementedCores);
+    while (ptr_Control_Of_Execute == nullptr) { /* wait untill created */ }
 }
 
 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* FLORENCE::FrameworkSpace::ServerSpace::Execute::get_Control_Of_Execute()
