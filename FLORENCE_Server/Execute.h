@@ -1,11 +1,11 @@
 #pragma once
 #include <array>
-#include <thread>
 #include "Control_Of_Execute.h"
 #include "Framework.h"
 #include "Global.h"
 #include "LaunchConcurrency.h"
 #include "Server.h"
+#include <thread>
 #include "WriteEnable.h"
 
 namespace FLORENCE

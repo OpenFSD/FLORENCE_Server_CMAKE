@@ -1,7 +1,7 @@
 #include "Algorithms.h"
 
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent** FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Array_Concurrent = nullptr;
 class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURRENT CORES
+class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent** FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent_Array = nullptr;
 class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond* FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_ListenRespond = nullptr;
 //===
 //===
@@ -20,11 +20,11 @@ FLORENCE::FrameworkSpace::ServerSpace::Algorithms::Algorithms(unsigned char* ptr
     {
         while (ptr_Concurrent[index] == nullptr) { /* wait untill class constructed */ }
     }//NUMBER OF CONCURRENT CORES
-    class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent** ptr_Array_Concurrent = ptr_Concurrent;
-    while (ptr_Array_Concurrent == nullptr) { /* wait untill class constructed */ }
+    class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent** ptr_Concurrent_Array = ptr_Concurrent;
+    while (ptr_Concurrent_Array == nullptr) { /* wait untill class constructed */ }
     for (int index = 0; index < *ptr_NumberOfImplementedCores - unsigned char(1); index++)
     {
-        ptr_Array_Concurrent[index]->initialise_Control();
+        ptr_Concurrent_Array[index]->initialise_Control();
     }
     
     class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond* ptr_ListenRespond = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond();
@@ -44,7 +44,7 @@ FLORENCE::FrameworkSpace::ServerSpace::Algorithms::~Algorithms()
     {
         delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent[index];
     }
-    delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Array_Concurrent;
+    delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent_Array;
     delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_ListenRespond;
     delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Praise0_Algorithms;
 }

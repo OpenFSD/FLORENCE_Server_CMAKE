@@ -6,6 +6,7 @@
 #include "Control_Of_Input.h"
 #include "Control_Of_LaunchConcurrency.h"
 #include "Control_Of_ListenRespond.h"
+#include "Control_Of_Output.h"
 #include "Control_Of_WriteEnable.h"
 #include "Data.h"
 #include "Global.h"

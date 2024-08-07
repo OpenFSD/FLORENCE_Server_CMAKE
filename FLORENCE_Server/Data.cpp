@@ -20,11 +20,11 @@ class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* FLORENCE
 
 FLORENCE::FrameworkSpace::ServerSpace::Data::Data(unsigned char* ptr_NumberOfImplementedCores)
 {
-    ptr_new_Input = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input();
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_new_Input = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input();
     while (ptr_new_Input == nullptr) { /* wait untill created */ }
     ptr_new_Input->initialise_Control();
     
-    ptr_new_Output = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output();
+    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_new_Output = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output();
     while (ptr_new_Output == nullptr) { /* wait untill created */ }
     ptr_new_Output->initialise_Control();
 

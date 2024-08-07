@@ -33,6 +33,7 @@ FLORENCE::FrameworkSpace::ServerSpace::Execute::~Execute()
 void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise_Threads()
 {
     class FLORENCE::FrameworkSpace::Server* ptr_Server = FLORENCE::Framework::get_Server();
+
     ptr_Thread_WithCoreId[0] = new std::thread(
         ptr_Server->get_Algorithms()->get_ListenRespond()->thread_IO_ListenDistribute,
         unsigned char(0),
@@ -54,7 +55,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::Execute::initialise_Threads()
     for (unsigned char index = 1; index <= *ptr_Server->get_Global()->get_NumCores(); index++)
     {
         ptr_Thread_WithCoreId[index] = new std::thread(
-            FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_Concurrency,
+            ptr_Server->get_Algorithms()->get_Concurren_Array(index)->thread_Concurrency,
             unsigned char(index),
             ptr_Server->get_Global()->get_NumCores(),
             ptr_Server->get_Algorithms()->get_Concurren_Array(index),

@@ -3,9 +3,6 @@
 #include "Data.h"
 #include "Execute.h"
 #include "Global.h"
-#include "Input.h"
-#include "Output.h"
-#
 
 namespace FLORENCE
 {
@@ -16,9 +13,6 @@ namespace FLORENCE
         public:
             Server();
             virtual ~Server();
-            static void initialise_Control();
-            static void initialise_Data();
-            static void initialise_Threads();
             class FLORENCE::FrameworkSpace::ServerSpace::Algorithms* get_Algorithms();
             class FLORENCE::FrameworkSpace::ServerSpace::Data* get_Data();
             class FLORENCE::FrameworkSpace::ServerSpace::Execute* get_Execute();

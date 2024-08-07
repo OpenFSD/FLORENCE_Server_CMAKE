@@ -22,7 +22,7 @@ FLORENCE::Framework::Framework()
     std::cout << "|/                //               \\| ";
     std::cout << "`                 V                 '";
 
-    ptr_Server->initialise_Threads();
+    ptr_Server->get_Execute()->initialise_Threads();
 }
 
 FLORENCE::Framework::~Framework()
