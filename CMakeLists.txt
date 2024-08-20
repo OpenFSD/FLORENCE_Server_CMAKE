@@ -1,5 +1,5 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
-# and include sub-projects here.
+﻿# CMakeList.txt : CMake project for FLORENCE_Server_CMAKE, include source and define
+# project specific logic here.
 #
 cmake_minimum_required (VERSION 3.8)
 
@@ -9,7 +9,13 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("FLORENCE_Server")
+project ("FLORENCE_Server_CMAKE")
 
-# Include sub-projects.
-add_subdirectory ("FLORENCE_Server")
+# Add source to this project's executable.
+add_executable (FLORENCE_Server_CMAKE "FLORENCE_Server_CMAKE.cpp" "FLORENCE_Server_CMAKE.h")
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET FLORENCE_Server_CMAKE PROPERTY CXX_STANDARD 20)
+endif()
+
+# TODO: Add tests and install targets if needed.
