@@ -1,12 +1,20 @@
-﻿// FLORENCE_Server_CMAKE.cpp : Defines the entry point for the application.
-//
+﻿// FLORENCE_Server.cpp : Defines the entry point for the application.
 
-#include "FLORENCE_Server_CMAKE.h"
+#include "FLORENCE_Server.h"
 
-using namespace std;
-
-int main()
+namespace FLORENCE
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+    int main()
+    {
+//        System.Console.WriteLine("FLORENCE: SERVER START");
+        ptr_Framework = new class FLORENCE::Framework();
+        while (ptr_Framework == nullptr) { /* wait untill created */ }
+        ptr_Framework->get_Server()->get_Execute()->initialise_Threads();
+        return 0;
+    }
+
+    static class FLORENCE::Framework* Get_framework()
+    {
+        return ptr_Framework;
+    }
 }

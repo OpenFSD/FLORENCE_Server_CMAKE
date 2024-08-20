@@ -26,7 +26,7 @@ namespace FLORENCE
                     unsigned char* ptr_MyNumImplementedCores,
                     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
                 );
-                void initialise_Threads(FLORENCE::FrameworkSpace::Server* ptr_Server);
+                void initialise_Threads();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* get_Control_Of_Execute();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* get_LaunchConcurrency();
                 class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* get_WriteEnable();
