@@ -1,5 +1,5 @@
 #pragma once
-#include "Output.h"
+#include "Framework.h"
 #include "user_files/Praise0_Output.h"
 
 namespace FLORENCE
@@ -19,7 +19,7 @@ namespace FLORENCE
                         virtual ~Control_Of_Output();
                         void selectSet_Output_Subset_For_Given_PraiseEventId(
                             int* ptr_praiseEventId,
-                            class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_Output
+                            unsigned char concurrent_coreId
                         );
 
                     protected:

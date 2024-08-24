@@ -10,16 +10,17 @@ FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output
 }
 
 void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output::selectSet_Output_Subset_For_Given_PraiseEventId(
-	int* ptr_praiseEventId, 
-	class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_Output
+	int* ptr_praiseEventId,
+	unsigned char concurrent_coreId
 )
 {
+	class FLORENCE::FrameworkSpace::Server* server = FLORENCE::Framework::get_Server();
 	switch (*ptr_praiseEventId)
 	{
 		//===
 		//===
 	case 0:
-		ptr_Output->set_OutputBuffer_Subset(new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output());
+		server->get_Data()->get_OutputRefferenceOfCore(concurrent_coreId)->set_OutputBuffer_Subset(new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output());
 		break;
 
 	case 1:

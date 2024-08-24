@@ -6,8 +6,8 @@
 FLORENCE::Framework::Framework()
 {
     System.Console.WriteLine("FLORENCE: Framework");
-	this->FLORENCE::Framework::get_Server() = new class FLORENCE::FrameworkSpace::Server();
-	while (this->FLORENCE::Framework::get_Server() == nullptr) { /* wait untill created */ }
+    this->ptr_Server = new class FLORENCE::FrameworkSpace::Server();
+	while (this->ptr_Server == nullptr) { /* wait untill created */ }
     
     System.Console.WriteLine("        ,     \\      /      ,");
     System.Console.WriteLine("       / \\    )\\ __ /(     / \\ ");
@@ -26,10 +26,10 @@ FLORENCE::Framework::Framework()
 
 FLORENCE::Framework::~Framework()
 {
-	delete FLORENCE::Framework::FLORENCE::Framework::get_Server();
+	delete FLORENCE::Framework::ptr_Server;
 }
 
 class FLORENCE::FrameworkSpace::Server* FLORENCE::Framework::get_Server()
 {
-	return this->FLORENCE::Framework::get_Server();
+	return this->ptr_Server;
 }

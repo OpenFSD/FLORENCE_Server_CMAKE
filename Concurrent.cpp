@@ -68,22 +68,24 @@ void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent::thread_
             {
                 ptr_Control_Of_Data->setFlag_InputStackLoaded(true);
             }
+
+            prt_Control_Of_Concurrent->selectSet_Algorithm_Subset_For_Given_PraiseEventId(
+                ptr_Data->get_InputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
+                concurrent_coreId
+            );
+
+            ptr_Control_Of_Output->selectSet_Output_Subset_For_Given_PraiseEventId(
+                ptr_Data->get_OutputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
+                concurrent_coreId
+            );
+
             ptr_WriteEnable->write_End(
                 ptr_Control_Of_WriteEnable,
                 &concurrent_coreId,
                 ptr_MyNumImplementedCores,
                 ptr_Global
             );
-            /*
-            prt_Control_Of_Concurrent->selectSet_Algorithm_Subset_For_Given_PraiseEventId(
-                ptr_Data->get_InputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
-                ptr_Concurrent
-            );
-            */
-/*            ptr_Control_Of_Output->selectSet_Output_Subset_For_Given_PraiseEventId(
-                ptr_Data->get_OutputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
-                ptr_Data->get_OutputRefferenceOfCore(concurrent_coreId)
-            );*/
+            
             ptr_Concurrent->do_Concurrent_Algorithm_For_PraiseEventId(
                 ptr_Data->get_InputRefferenceOfCore(concurrent_coreId)->getPraiseEventId(),
                 ptr_Algorithm_Subset,

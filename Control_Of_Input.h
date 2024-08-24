@@ -1,4 +1,5 @@
 #pragma once
+#include "Framework.h"
 #include "Input.h"
 #include "user_files/Praise0_Input.h"
 
@@ -18,8 +19,7 @@ namespace FLORENCE
                         Control_Of_Input();
                         virtual ~Control_Of_Input();
                         void selectSet_Input_Subset_For_Given_PraiseEventId(
-                            int* ptr_praiseEventId,
-                            class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_Input
+                            int* ptr_praiseEventId
                         );
 
                     protected:

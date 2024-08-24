@@ -11,15 +11,16 @@ FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control
 
 void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace::Control_Of_Concurrent::selectSet_Algorithm_Subset_For_Given_PraiseEventId(
 	int* ptr_praiseEventId,
-	class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* ptr_Concurrent
+	unsigned char concurrent_coreId
 )
 {
+	class FLORENCE::FrameworkSpace::Server* server = FLORENCE::Framework::get_Server();
 	switch (*ptr_praiseEventId)
 	{
 		//===
 		//===	
 	case 0:
-		ptr_Concurrent->set_Algorithm_Subset(new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm());
+		server->get_Algorithms()->get_Concurren_Array(concurrent_coreId)->set_Algorithm_Subset(new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm());
 		break;
 
 	case 1:
