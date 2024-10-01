@@ -1,5 +1,6 @@
 # FLORENCE in CMAKE
 ## Server and Buffer, For Full Stack Development
+FLORENCE - Architecture.PNG => https://drive.google.com/file/d/1AzNi2YrukRCVLelxfj8uvzhFDI4ytWBs/view?usp=sharing
 ### C++
 
 ### Using Windows 10
