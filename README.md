@@ -17,6 +17,10 @@ Version: 22H2
 
 Version 17.10.5
 
+## Conjoined Packages
+VALVE GameNetworkingSockets
+https://github.com/ValveSoftware/GameNetworkingSockets
+
 ## Development History
 FLORENCE_Template-For_Server (PRIVATE)
 https://github.com/Legelowes/FLORENCE_Template-For_Server
