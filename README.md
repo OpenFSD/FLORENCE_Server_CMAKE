@@ -33,7 +33,7 @@ https://github.com/OpenFSD/FLORENCE_Template-For_Server
 FLORENCE_Cpp_SudoCode_in_Csharp (PRIVATE)
 https://github.com/OpenFSD/FLORENCE_Cpp_SudoCode_in_Csharp
 
-FLORENCE_TestBench_SERVER_cpp (PRIVATE)
+FLORENCE_TestBench_SERVER_cpp (PUBLIC)
 https://github.com/OpenFSD/FLORENCE_TestBench_SERVER_cpp
 
 FLORENCE_Server_Cpp (PRIVATE)
