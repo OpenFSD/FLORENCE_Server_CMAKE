@@ -1,25 +1,16 @@
 #pragma once
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace
 {
-    namespace FrameworkSpace
+    class Control_Of_Algorithms
     {
-        namespace ServerSpace
-        {
-            namespace AlgorithmsSpace
-            {
-                class Control_Of_Algorithms
-                {
-                public:
-                    Control_Of_Algorithms();
-                    virtual ~Control_Of_Algorithms();
+    public:
+        Control_Of_Algorithms();
+        virtual ~Control_Of_Algorithms();
 
-                protected:
+    protected:
 
-                private:
+    private:
 
-                };
-            }
-        }
-    }
+    };
 }

@@ -1,11 +1,13 @@
 #include "Algorithms.h"
 
-FLORENCE::FrameworkSpace::ServerSpace::Algorithms::Algorithms(unsigned char* ptr_NumberOfImplementedCores)
+using FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace;
+
+Algorithms(unsigned char* ptr_NumberOfImplementedCores)
 {
-    this->ptr_New_Concurrent = new FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent();
+    this->ptr_New_Concurrent = new class Concurrent();
     this->ptr_New_Concurrent->initialise_Control();
 
-    FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* ptr_Concurrent[3] = {
+    Concurrent* ptr_Concurrent[3] = {
         this->ptr_New_Concurrent,
         this->ptr_New_Concurrent,
         this->ptr_New_Concurrent
@@ -15,41 +17,41 @@ FLORENCE::FrameworkSpace::ServerSpace::Algorithms::Algorithms(unsigned char* ptr
     this->ptr_Concurrent_Array = this->ptr_Concurrent;
     while (this->ptr_Concurrent_Array == nullptr) { /* wait untill class constructed */ }
 
-    this->ptr_ListenRespond = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond();
+    this->ptr_ListenRespond = new class ListenRespond();
     while (this->ptr_ListenRespond == nullptr) { /* wait untill class constructed */ }
     this->ptr_ListenRespond->initialise_Control();
 //===
 //===
-    this->ptr_Praise0_Algorithms = new class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm();
+    this->ptr_Praise0_Algorithms = new class Praise0_Algorithm();
     while (this->ptr_Praise0_Algorithms == nullptr) { /* wait untill class constructed */ }
 //===
 //===
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::Algorithms::~Algorithms()
+~Algorithms()
 {
     for (int index = 0; index < 3; index++)//NUMBER OF CONCURRENT CORES
     {
-        delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent[index];
+        delete ptr_Concurrent[index];
     }
-    delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Concurrent_Array;
-    delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_ListenRespond;
-    delete FLORENCE::FrameworkSpace::ServerSpace::Algorithms::ptr_Praise0_Algorithms;
+    delete ptr_Concurrent_Array;
+    delete ptr_ListenRespond;
+    delete ptr_Praise0_Algorithms;
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Concurrent* FLORENCE::FrameworkSpace::ServerSpace::Algorithms::get_Concurren_Array(unsigned char concurrent_coreId)
+class Concurrent* get_Concurren_Array(unsigned char concurrent_coreId)
 {
     return this->ptr_Concurrent[concurrent_coreId];
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespond* FLORENCE::FrameworkSpace::ServerSpace::Algorithms::get_ListenRespond()
+class ListenRespond* get_ListenRespond()
 {
     return this->ptr_ListenRespond;
 }
 
 //===
 //===
-class FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm* FLORENCE::FrameworkSpace::ServerSpace::Algorithms::get_Praise0_Algorithm()
+class Praise0_Algorithm* get_Praise0_Algorithm()
 {
     return this->ptr_Praise0_Algorithms;
 }

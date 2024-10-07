@@ -1,26 +1,28 @@
 #include "WriteEnable.h"
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::WriteEnable()
+using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace;
+
+WriteEnable()
 {
 
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::~WriteEnable()
+~WriteEnable()
 {
-    delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::ptr_Control_Of_WriteEnable;
+    delete ptr_Control_Of_WriteEnable;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::initialise_Control(
+void initialise_Control(
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
     unsigned char* ptr_MyNumImplementedCores
 )
 {
-    this->ptr_Control_Of_WriteEnable = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable(ptr_Global, ptr_MyNumImplementedCores);
+    this->ptr_Control_Of_WriteEnable = new class Control_Of_WriteEnable(ptr_Global, ptr_MyNumImplementedCores);
     while (this->ptr_Control_Of_WriteEnable == nullptr) { /* wait untill created */ }
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::write_End(
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
+void write_End(
+    class Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
     unsigned char* ptr_coreId,
     unsigned char* ptr_MyNumImplementedCores,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
@@ -44,8 +46,8 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::write_End
     );
     ptr_Control_Of_WriteEnable->setFlag_readWrite_Open(false);
 }
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::write_Start(
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
+void write_Start(
+    class Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
     unsigned char* ptr_coreId,
     unsigned char* ptr_MyNumImplementedCores,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
@@ -70,7 +72,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::write_Sta
     );
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable::get_Control_Of_WriteEnable()
+class Control_Of_WriteEnable* get_Control_Of_WriteEnable()
 {
     return this->ptr_Control_Of_WriteEnable;
 }

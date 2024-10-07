@@ -1,17 +1,19 @@
 #include "LaunchConcurrency.h"
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::LaunchConcurrency()
+using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace;
+
+LaunchConcurrency()
 {
 
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::~LaunchConcurrency()
+~LaunchConcurrency()
 {
-    delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::ptr_Control_Of_LaunchConcurrency;
+    delete ptr_Control_Of_LaunchConcurrency;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::concurrent_Thread_Start(
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
+void concurrent_Thread_Start(
+    class Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
     unsigned char* ptr_concurrent_CoreId,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
     unsigned char* ptr_NumImplementedCores
@@ -26,17 +28,17 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::con
     ptr_Control_Of_LaunchConcurrency->setFlag_PraisingLaunch(false);
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::initialise_Control(
+void initialise_Control(
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
     unsigned char* ptr_MyNumImplementedCores
 )
 {
-    this->ptr_Control_Of_LaunchConcurrency = new class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
+    this->ptr_Control_Of_LaunchConcurrency = new class Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
     while (this->ptr_Control_Of_LaunchConcurrency == nullptr) { /* wait untill created */ }
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::thread_End(
-    class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
+void thread_End(
+    class Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
     unsigned char* ptr_concurrent_CoreId,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
 )
@@ -68,7 +70,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::thr
     }
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency::get_Control_Of_LaunchConcurrency()
+class Control_Of_LaunchConcurrency* get_Control_Of_LaunchConcurrency()
 {
     return this->ptr_Control_Of_LaunchConcurrency;
 }

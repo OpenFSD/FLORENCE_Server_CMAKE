@@ -1,15 +1,17 @@
 #include "Control_Of_Input.h"
 
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input::Control_Of_Input()
+using FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_InputSpace;
+
+Control_Of_Input()
 {
 
 }
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input::~Control_Of_Input()
+~Control_Of_Input()
 {
 
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input::selectSet_Input_Subset_For_Given_PraiseEventId(
+void selectSet_Input_Subset_For_Given_PraiseEventId(
 	int* ptr_praiseEventId
 )
 {

@@ -1,14 +1,16 @@
 #include "Control_Of_LaunchConcurrency.h"
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_concurrent_CoreId_Index = nullptr;
-int* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_count_LaunchActive_For[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURNT CORES
-int* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_count_LaunchIdle_For[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURNT CORES
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::flag_ConcurrentCoreState[3] = { false, false, false };//NUMBER OF CONCURRENT CORES
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_new_concurrent_CoreId_Index = nullptr;
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::flag_praisingLaunch = false;
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_que_CoreToLaunch[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURRENT CORES
+using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrencySpace;
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::Control_Of_LaunchConcurrency(
+unsigned char* ptr_concurrent_CoreId_Index = nullptr;
+int* ptr_count_LaunchActive_For[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURNT CORES
+int* ptr_count_LaunchIdle_For[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURNT CORES
+bool flag_ConcurrentCoreState[3] = { false, false, false };//NUMBER OF CONCURRENT CORES
+unsigned char* ptr_new_concurrent_CoreId_Index = nullptr;
+bool flag_praisingLaunch = false;
+unsigned char* ptr_que_CoreToLaunch[3] = { nullptr, nullptr, nullptr };//NUMBER OF CONCURRENT CORES
+
+Control_Of_LaunchConcurrency(
     FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
     unsigned char* ptr_NumImplementedCores
 )
@@ -22,26 +24,26 @@ FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Con
     unsigned char* ptr_que_CoreToLaunch[3] = { new unsigned char(0), new unsigned char(0), new unsigned char(0) };//NUMBER OF CONCURNT CORES
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::~Control_Of_LaunchConcurrency()
+~Control_Of_LaunchConcurrency()
 {
-    delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_concurrent_CoreId_Index;
+    delete ptr_concurrent_CoreId_Index;
     for (int index = 0; index < 3; index++)
     {
-        delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_count_LaunchActive_For[index];
-        delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_count_LaunchIdle_For[index];
-        delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_que_CoreToLaunch[index];
+        delete ptr_count_LaunchActive_For[index];
+        delete ptr_count_LaunchIdle_For[index];
+        delete ptr_que_CoreToLaunch[index];
     }//NUMBER OF CONCURRENT CORES
-    delete FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::ptr_new_concurrent_CoreId_Index;
+    delete ptr_new_concurrent_CoreId_Index;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::launchEnable_Activate(
+void launchEnable_Activate(
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
 )
 {
     setFlag_ConcurrentCoreState(getFlag_CoreId_Of_CoreToLaunch(), ptr_Global->getConst_Core_ACTIVE());
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::launchEnable_Request(
+void launchEnable_Request(
     unsigned char* concurrent_CoreId,
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
 )
@@ -75,7 +77,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace
     }
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::launchEnable_SortQue(
+void launchEnable_SortQue(
     class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
     unsigned char* ptr_NumImplementedCores
 )
@@ -111,7 +113,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace
     }
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::launchQue_Update(
+void launchQue_Update(
     unsigned char* ptr_NumImplementedCores
 )
 {
@@ -135,53 +137,53 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace
     }
 }
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_concurrent_CoreId_Index()
+unsigned char* get_concurrent_CoreId_Index()
 {
     return ptr_concurrent_CoreId_Index;
 }
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_coreId_To_Launch()
+unsigned char* get_coreId_To_Launch()
 {
     return ptr_que_CoreToLaunch[0];
 }
 
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::getFlag_ConcurrentCoreState(unsigned char* concurrent_CoreId)
+bool getFlag_ConcurrentCoreState(unsigned char* concurrent_CoreId)
 {
     return flag_ConcurrentCoreState[*concurrent_CoreId];
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::setFlag_PraisingLaunch(bool value)
+void setFlag_PraisingLaunch(bool value)
 {
     flag_praisingLaunch = value;
 }
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_new_concurrent_CoreId_Index()
+unsigned char* get_new_concurrent_CoreId_Index()
 {
     return ptr_new_concurrent_CoreId_Index;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::set_concurrent_CoreId_Index(unsigned char value)
+void set_concurrent_CoreId_Index(unsigned char value)
 {
     ptr_concurrent_CoreId_Index = &value;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::setFlag_ConcurrentCoreState(unsigned char* concurrent_CoreId, bool value)
+void setFlag_ConcurrentCoreState(unsigned char* concurrent_CoreId, bool value)
 {
     flag_ConcurrentCoreState[*concurrent_CoreId] = &value;
 }
 
 
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::getFlag_PraisingLaunch()
+bool getFlag_PraisingLaunch()
 {
     return flag_praisingLaunch;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::set_new_concurrent_CoreId_Index(unsigned char value)
+void set_new_concurrent_CoreId_Index(unsigned char value)
 {
     ptr_new_concurrent_CoreId_Index = &value;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::dynamicStagger(
+void dynamicStagger(
     unsigned char* ptr_coreId
 )
 {
@@ -201,7 +203,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace
     }
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::launchEnable_ShiftQueValues(
+void launchEnable_ShiftQueValues(
     unsigned char* concurrent_CoreId_A,
     unsigned char* concurrent_CoreId_B
 )
@@ -223,37 +225,37 @@ void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace
     delete ptr_temp_UnnsignedChar;
 }
 
-int* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_count_LaunchActive_For(unsigned char* concurrent_CoreId)
+int* get_count_LaunchActive_For(unsigned char* concurrent_CoreId)
 {
     return ptr_count_LaunchActive_For[*concurrent_CoreId];
 }
 
-int* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_count_LaunchIdle_For(unsigned char* concurrent_CoreId)
+int* get_count_LaunchIdle_For(unsigned char* concurrent_CoreId)
 {
     return ptr_count_LaunchIdle_For[*concurrent_CoreId];
 }
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::getFlag_CoreId_Of_CoreToLaunch()
+unsigned char* getFlag_CoreId_Of_CoreToLaunch()
 {
     return ptr_que_CoreToLaunch[0];
 }
 
-unsigned char* FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::get_que_CoreToLaunch(unsigned char* index)
+unsigned char* get_que_CoreToLaunch(unsigned char* index)
 {
     return ptr_que_CoreToLaunch[*index];
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::set_count_LaunchActive_For(unsigned char* concurrent_CoreId, int value)
+void set_count_LaunchActive_For(unsigned char* concurrent_CoreId, int value)
 {
     ptr_count_LaunchActive_For[*concurrent_CoreId] = &value;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::set_count_LaunchIdle_For(unsigned char* concurrent_CoreId, int value)
+void set_count_LaunchIdle_For(unsigned char* concurrent_CoreId, int value)
 {
     ptr_count_LaunchIdle_For[*concurrent_CoreId] = &value;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency::set_que_CoreToLaunch(unsigned char* concurrent_CoreId, unsigned char value)
+void set_que_CoreToLaunch(unsigned char* concurrent_CoreId, unsigned char value)
 {
     ptr_que_CoreToLaunch[*concurrent_CoreId] = &value;
 }

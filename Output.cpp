@@ -1,8 +1,10 @@
 #include "Output.h"
 
-int* FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::ptr_out_PraiseEventId = nullptr;
+using FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace;
 
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::Output()
+int* ptr_out_PraiseEventId = nullptr;
+
+Output()
 {
     this->praiseOutputBuffer_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output();//ToDo CLASS T
     while (this->praiseOutputBuffer_Subset == nullptr) { /* wait untill created */ }
@@ -10,41 +12,41 @@ FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::Output()
     while (this->ptr_out_PraiseEventId == nullptr) { /* wait untill created */ }
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::~Output()
+~Output()
 {
-    delete FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::ptr_Control_Of_Output;
-    delete FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::praiseOutputBuffer_Subset;
-    delete FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::ptr_out_PraiseEventId;
+    delete ptr_Control_Of_Output;
+    delete praiseOutputBuffer_Subset;
+    delete ptr_out_PraiseEventId;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::initialise_Control()
+void initialise_Control()
 {
-    this->ptr_Control_Of_Output = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output();
+    this->ptr_Control_Of_Output = new class Control_Of_Output();
     while (this->ptr_Control_Of_Output == nullptr) { /* wait untill created */ }
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::get_Control_Of_Output()
+class Control_Of_Output* get_Control_Of_Output()
 {
     return this->ptr_Control_Of_Output;
 }
 
-class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::get_OutputBuffer_Subset()
+class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* get_OutputBuffer_Subset()
 {
     return this->praiseOutputBuffer_Subset;
 }
 
 
-int* FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::getPraiseEventId()
+int* getPraiseEventId()
 {
     return this->ptr_out_PraiseEventId;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::set_OutputBuffer_Subset(class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* value)
+void set_OutputBuffer_Subset(class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* value)
 {
     this->praiseOutputBuffer_Subset = value;
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output::setPraiseEventId(int value)
+void setPraiseEventId(int value)
 {
     this->ptr_out_PraiseEventId = &value;
 }

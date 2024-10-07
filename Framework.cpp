@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Framework.h"
 
-//class FLORENCE::FrameworkSpace::Server* FLORENCE::Framework::FLORENCE::Framework::get_Server();
+using FLORENCE::FrameworkSpace;
 
 FLORENCE::Framework::Framework()
 {
@@ -29,7 +29,7 @@ FLORENCE::Framework::~Framework()
 	delete FLORENCE::Framework::ptr_Server;
 }
 
-class FLORENCE::FrameworkSpace::Server* FLORENCE::Framework::get_Server()
+class Server* FLORENCE::Framework::get_Server()
 {
 	return this->ptr_Server;
 }

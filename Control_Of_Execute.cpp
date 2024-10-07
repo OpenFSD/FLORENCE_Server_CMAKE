@@ -1,20 +1,22 @@
 #include "Control_Of_Execute.h"
 
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::flag_SystemInitialised = bool(true);
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
+using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_ExecuteSpace;
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::Control_Of_Execute(unsigned char* ptr_MyNumImplementedCores)
+bool flag_SystemInitialised = bool(true);
+bool flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
+
+Control_Of_Execute(unsigned char* ptr_MyNumImplementedCores)
 {
-	bool flag_SystemInitialised = bool(true);
-	bool flag_ThreadInitialised[4] = { true, true, true, true };//NUMBER OF CORES
+	flag_SystemInitialised = bool(true);
+	flag_ThreadInitialised[4] = { true, true, true, true };//NUMBER OF CORES
 }
 
-FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::~Control_Of_Execute()
+~Control_Of_Execute()
 {
 
 }
 
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::getFlag_SystemInitialised(unsigned char* ptr_MyNumImplementedCores)
+bool getFlag_SystemInitialised(unsigned char* ptr_MyNumImplementedCores)
 {
 	for (int index = 0; index < *ptr_MyNumImplementedCores; index++)
 	{
@@ -27,18 +29,18 @@ bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::ge
 	return flag_SystemInitialised;
 }
 
-bool FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::getFlag_ThreadInitialised(unsigned char coreId)
+bool getFlag_ThreadInitialised(unsigned char coreId)
 {
 	return flag_ThreadInitialised[coreId];
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::setConditionCodeOfThisThreadedCore(unsigned char coreId)
+void setConditionCodeOfThisThreadedCore(unsigned char coreId)
 {
 	//Todo
 	setFlag_ThreadInitialised(coreId);
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute::setFlag_ThreadInitialised(unsigned char coreId)
+void setFlag_ThreadInitialised(unsigned char coreId)
 {
 	flag_ThreadInitialised[coreId] = false;
 }

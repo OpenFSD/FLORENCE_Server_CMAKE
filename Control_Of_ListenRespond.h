@@ -1,30 +1,19 @@
 #pragma once
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace
 {
-    namespace FrameworkSpace
+
+    class Control_Of_ListenRespond
     {
-        namespace ServerSpace
-        {
-            namespace AlgorithmsSpace
-            {
-                namespace ListenRespondSpace
-                {
-                    class Control_Of_ListenRespond
-                    {
-                    public:
-                        Control_Of_ListenRespond();
-                        ~Control_Of_ListenRespond();
-                        bool getFlag_IO_ThreadState();
-                        void setFlag_IO_ThreadState(bool value);
+    public:
+        Control_Of_ListenRespond();
+        ~Control_Of_ListenRespond();
+        bool getFlag_IO_ThreadState();
+        void setFlag_IO_ThreadState(bool value);
 
-                    protected:
+    protected:
 
-                    private:
-                        static bool flag_IO_ThreadState;
-                    };
-                }
-            }
-        }
-    }
+    private:
+        static bool flag_IO_ThreadState;
+    };
 }

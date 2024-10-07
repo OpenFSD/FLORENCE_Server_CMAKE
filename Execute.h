@@ -8,37 +8,31 @@
 #include <thread>
 #include "WriteEnable.h"
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace
 {
-    namespace FrameworkSpace
+    class Execute
     {
-        namespace ServerSpace
-        {
-            class Execute
-            {
-            public:
-                Execute(
-                    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
-                    unsigned char* ptr_MyNumImplementedCores
-                );
-                virtual ~Execute();
-                void initialise_Control(
-                    unsigned char* ptr_MyNumImplementedCores,
-                    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
-                );
-                void initialise_Threads();
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* get_Control_Of_Execute();
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* get_LaunchConcurrency();
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* get_WriteEnable();
+    public:
+        Execute(
+            class Global* ptr_Global,
+            unsigned char* ptr_MyNumImplementedCores
+        );
+        virtual ~Execute();
+        void initialise_Control(
+            unsigned char* ptr_MyNumImplementedCores,
+            class Global* ptr_Global
+        );
+        void initialise_Threads();
+        class Control_Of_Execute* get_Control_Of_Execute();
+        class LaunchConcurrency* get_LaunchConcurrency();
+        class WriteEnable* get_WriteEnable();
 
-            protected:
+    protected:
 
-            private:
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute;
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency;
-                std::thread* ptr_Thread_WithCoreId[4];//NUMBER OF CORES
-                class FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable;
-            };
-        }
-    }
+    private:
+        class Control_Of_Execute* ptr_Control_Of_Execute;
+        class LaunchConcurrency* ptr_LaunchConcurrency;
+        std::thread* ptr_Thread_WithCoreId[4];//NUMBER OF CORES
+        class WriteEnable* ptr_WriteEnable;
+    };
 }

@@ -4,33 +4,21 @@
 #include "user_files/Praise0_Input.h"
 #include "user_files/Praise0_Output.h"
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ConcurrentSpace
 {
-    namespace FrameworkSpace
+    class Control_Of_Concurrent
     {
-        namespace ServerSpace
-        {
-            namespace AlgorithmsSpace
-            {
-                namespace ConcurrentSpace
-                {
-                    class Control_Of_Concurrent
-                    {
-                    public:
-                        Control_Of_Concurrent();
-                        virtual ~Control_Of_Concurrent();
-                        void selectSet_Algorithm_Subset_For_Given_PraiseEventId(
-                            int* ptr_praiseEventId,
-                            unsigned char concurrent_coreId
-                        );
+    public:
+        Control_Of_Concurrent();
+        virtual ~Control_Of_Concurrent();
+        void selectSet_Algorithm_Subset_For_Given_PraiseEventId(
+            int* ptr_praiseEventId,
+            unsigned char concurrent_coreId
+        );
 
-                    protected:
+    protected:
 
-                    private:
+    private:
 
-                    };
-                }
-            }
-        }
-    }
+    };
 }

@@ -1,19 +1,21 @@
 #include "Control_Of_Data.h"
 
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::flag_InputStackLoaded = false;
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::flag_OutputStackLoaded = false;
+using FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_DataSpace;
 
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::Control_Of_Data()
+bool flag_InputStackLoaded = false;
+bool flag_OutputStackLoaded = false;
+
+Control_Of_Data()
 {
     bool flag_InputStackLoaded = bool(false);
     bool flag_OutputStackLoaded = bool(false);
 }
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::~Control_Of_Data()
+~Control_Of_Data()
 {
 
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::load_Input_Subset_For_PraiseEventId(int* ptr_praiseEventId)
+void load_Input_Subset_For_PraiseEventId(int* ptr_praiseEventId)
 {
     switch (*ptr_praiseEventId)
     {
@@ -23,7 +25,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::load_Inp
 
     }
 }
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromStackOfInputPraises(
+void popFromStackOfInputPraises(
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* referenceForCore,
     std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_inputStack
 )
@@ -33,7 +35,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromS
     referenceForCore->set_InputBuffer_SubSet(ptr_inputStack->at(1)->get_InputBufferSubset());
     ptr_inputStack->erase(ptr_inputStack->begin() + 1);
 }
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromStackOfOutput(
+void popFromStackOfOutput(
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* distributeBuffer,
     std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack
 )
@@ -42,7 +44,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::popFromS
     distributeBuffer->set_OutputBuffer_Subset(ptr_outputStack->at(1)->get_OutputBuffer_Subset());
     ptr_outputStack->erase(ptr_outputStack->begin() + 1);
 }
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToStackOfInputPraises(
+void pushToStackOfInputPraises(
     std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_InputStack,
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_PraiseBuffer
 )
@@ -56,7 +58,7 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToSt
     );
 }
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToStackOfOutput(
+void pushToStackOfOutput(
     std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack,
     class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_referenceForCore
 )
@@ -70,21 +72,21 @@ void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::pushToSt
     );
 }
 
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::getFlag_InputStackLoaded()
+bool getFlag_InputStackLoaded()
 {
     return flag_InputStackLoaded;
 }
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::getFlag_OutputStackLoaded()
+bool getFlag_OutputStackLoaded()
 {
     return flag_OutputStackLoaded;
 }
 
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::setFlag_InputStackLoaded(bool value)
+void setFlag_InputStackLoaded(bool value)
 {
     flag_InputStackLoaded = value;
 }
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data::setFlag_OutputStackLoaded(bool value)
+void setFlag_OutputStackLoaded(bool value)
 {
     flag_OutputStackLoaded = value;
 }

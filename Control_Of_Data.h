@@ -4,51 +4,42 @@
 #include "Output.h"
 
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
-    namespace FrameworkSpace
+    class Control_Of_Data
     {
-        namespace ServerSpace
-        {
-            namespace DataSpace
-            {
-                class Control_Of_Data
-                {
-                public:
-                    Control_Of_Data();
-                    virtual ~Control_Of_Data();
-                    void popFromStackOfInputPraises(
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* referenceForCore,
-                        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_inputStack
-                    );
-                    void popFromStackOfOutput(
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* distributeBuffer,
-                        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack
-                    );
-                    void pushToStackOfInputPraises(
-                        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_InputStack,
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_PraiseBuffer
-                    );
-                    void pushToStackOfOutput(
-                        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_outputStack,
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output* ptr_referenceForCore
-                    );
+    public:
+        Control_Of_Data();
+        virtual ~Control_Of_Data();
+        void popFromStackOfInputPraises(
+            class Input* referenceForCore,
+            std::vector<class Input*>* ptr_inputStack
+        );
+        void popFromStackOfOutput(
+            class Output* distributeBuffer,
+            std::vector<class Output*>* ptr_outputStack
+        );
+        void pushToStackOfInputPraises(
+            std::vector<class Input*>* ptr_InputStack,
+            class Input* ptr_PraiseBuffer
+        );
+        void pushToStackOfOutput(
+            std::vector<class Output*>* ptr_outputStack,
+            class Output* ptr_referenceForCore
+        );
 
-                    bool getFlag_InputStackLoaded();
-                    bool getFlag_OutputStackLoaded();
+        bool getFlag_InputStackLoaded();
+        bool getFlag_OutputStackLoaded();
 
-                    void setFlag_InputStackLoaded(bool value);
-                    void setFlag_OutputStackLoaded(bool value);
+        void setFlag_InputStackLoaded(bool value);
+        void setFlag_OutputStackLoaded(bool value);
 
-                protected:
+    protected:
 
-                private:
-                    void load_Input_Subset_For_PraiseEventId(int* ptr_praiseEventId);
+    private:
+        void load_Input_Subset_For_PraiseEventId(int* ptr_praiseEventId);
 
-                    static bool flag_InputStackLoaded;
-                    static bool flag_OutputStackLoaded;
-                };
-            }
-        }
-    }
+        static bool flag_InputStackLoaded;
+        static bool flag_OutputStackLoaded;
+    };
 }
