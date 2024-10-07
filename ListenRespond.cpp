@@ -61,7 +61,7 @@ void thread_IO_ListenDistribute(
             ptr_Data->get_PraiseBuffer()
         );
         ptr_PraiseBuffer_Subset->set_A(new bool(false));
-        ptr_PraiseBuffer_Subset->set_A(new bool(false));
+        ptr_PraiseBuffer_Subset->set_B(new bool(false));
         //END TODO> client praise networking accepted and captured
 
         ptr_Control_Of_Data->pushToStackOfInputPraises(
