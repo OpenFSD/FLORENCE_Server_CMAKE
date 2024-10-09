@@ -3,7 +3,7 @@
 
 using FLORENCE::FrameworkSpace;
 
-FLORENCE::Framework::Framework()
+Framework()
 {
     System.Console.WriteLine("FLORENCE: Framework");
     this->ptr_Server = new class FLORENCE::FrameworkSpace::Server();
@@ -24,12 +24,12 @@ FLORENCE::Framework::Framework()
     System.Console.WriteLine("`                 V                 '");
 }
 
-FLORENCE::Framework::~Framework()
+~Framework()
 {
-	delete FLORENCE::Framework::ptr_Server;
+	delete ptr_Server;
 }
 
-class Server* FLORENCE::Framework::get_Server()
+class Server* get_Server()
 {
 	return this->ptr_Server;
 }
