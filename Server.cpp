@@ -2,7 +2,7 @@
 
 using FLORENCE::FrameworkSpace::ServerSpace;
 
-FLORENCE::FrameworkSpace::Server::Server()
+Server()
 {
     this->ptr_Global = new class Global();
     while (this->ptr_Global == nullptr) { /* wait untill created */ }
@@ -18,7 +18,7 @@ FLORENCE::FrameworkSpace::Server::Server()
     while (this->ptr_Execute == nullptr) { /* wait untill created */ }
     this->ptr_Execute->initialise_Control(ptr_Global->get_NumCores(), ptr_Global);
 }
-FLORENCE::FrameworkSpace::Server::~Server()
+~Server()
 {
     delete this->ptr_Global;
     delete this->ptr_Algorithms;
