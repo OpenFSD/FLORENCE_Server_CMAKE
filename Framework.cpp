@@ -6,7 +6,7 @@ using FLORENCE::FrameworkSpace;
 Framework()
 {
     System.Console.WriteLine("FLORENCE: Framework");
-    this->ptr_Server = new class FLORENCE::FrameworkSpace::Server();
+    this->ptr_Server = new class Server();
 	while (this->ptr_Server == nullptr) { /* wait untill created */ }
     
     System.Console.WriteLine("        ,     \\      /      ,");
