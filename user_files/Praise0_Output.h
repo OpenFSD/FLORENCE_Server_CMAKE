@@ -1,27 +1,18 @@
 #pragma once
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
-    namespace FrameworkSpace
+    class Praise0_Output
     {
-        namespace ServerSpace
-        {
-            namespace DataSpace
-            {
-                class Praise0_Output
-                {
-                public:
-                    Praise0_Output();
-                    virtual ~Praise0_Output();
-                    bool getResultForPraise_0();
-                    void setResultForPraise_0(bool value);
+    public:
+        Praise0_Output();
+        virtual ~Praise0_Output();
+        bool getResultForPraise_0();
+        void setResultForPraise_0(bool value);
 
-                protected:
+    protected:
 
-                private:
-                    static bool praise0_Result;
-                };
-            }
-        }
-    }
+    private:
+        bool praise0_Result;
+    };
 }

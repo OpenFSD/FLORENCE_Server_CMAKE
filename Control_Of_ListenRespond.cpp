@@ -1,24 +1,25 @@
 #include "Control_Of_ListenRespond.h"
 
-using FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace::Control_Of_ListenRespondSpace;
-
-bool flag_IO_ThreadState = false;
-
-Control_Of_ListenRespond()
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::ListenRespondSpace
 {
-    ptr_Flag_IO_ThreadState = new bool(true);
-}
-~Control_Of_ListenRespond()
-{
+    bool Control_Of_ListenRespond::flag_IO_ThreadState = false;
 
-}
+    Control_Of_ListenRespond::Control_Of_ListenRespond()
+    {
+        //ptr_Flag_IO_ThreadState = new bool(true);
+    }
+    Control_Of_ListenRespond::~Control_Of_ListenRespond()
+    {
 
-bool getFlag_IO_ThreadState()
-{
-    return flag_IO_ThreadState;
-}
+    }
 
-void setFlag_IO_ThreadState(bool value)
-{
-    flag_IO_ThreadState = value;
+    bool Control_Of_ListenRespond::getFlag_IO_ThreadState()
+    {
+        return flag_IO_ThreadState;
+    }
+
+    void Control_Of_ListenRespond::setFlag_IO_ThreadState(bool value)
+    {
+        flag_IO_ThreadState = value;
+    }
 }

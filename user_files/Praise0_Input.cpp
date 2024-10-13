@@ -1,34 +1,38 @@
 #include "Praise0_Input.h"
 
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::a = false;
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::b = false;
-
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::Praise0_Input()
+namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
-	bool a = bool(false);
-	bool b = bool(false);
-}
 
-FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::~Praise0_Input()
-{
-}
+	bool Praise0_Input::a = false;
+	bool Praise0_Input::b = false;
 
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::get_A()
-{
-	return a;
-}
+	Praise0_Input::Praise0_Input()
+	{
+		this->a = bool(false);
+		this->b = bool(false);
+	}
 
-bool FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::get_B()
-{
-	return b;
-}
+	Praise0_Input::~Praise0_Input()
+	{
+	}
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::set_A(bool value)
-{
-	a = value;
-}
+	bool Praise0_Input::get_A()
+	{
+		return a;
+	}
 
-void FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input::set_B(bool value)
-{
-	b = value;
+	bool Praise0_Input::get_B()
+	{
+		return b;
+	}
+
+	void Praise0_Input::set_A(bool value)
+	{
+		a = value;
+	}
+
+	void Praise0_Input::set_B(bool value)
+	{
+		b = value;
+	}
 }

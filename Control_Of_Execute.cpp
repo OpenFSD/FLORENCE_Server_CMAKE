@@ -1,46 +1,47 @@
 #include "Control_Of_Execute.h"
 
-using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_ExecuteSpace;
-
-bool flag_SystemInitialised = bool(true);
-bool flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
-
-Control_Of_Execute(unsigned char* ptr_MyNumImplementedCores)
+namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace
 {
-	flag_SystemInitialised = bool(true);
-	flag_ThreadInitialised[4] = { true, true, true, true };//NUMBER OF CORES
-}
+	bool Control_Of_Execute::flag_SystemInitialised = bool(true);
+	bool Control_Of_Execute::flag_ThreadInitialised[4] = { bool(true), bool(true), bool(true), bool(true) };//NUMBER OF CORES
 
-~Control_Of_Execute()
-{
-
-}
-
-bool getFlag_SystemInitialised(unsigned char* ptr_MyNumImplementedCores)
-{
-	for (int index = 0; index < *ptr_MyNumImplementedCores; index++)
+	Control_Of_Execute::Control_Of_Execute(unsigned char* ptr_MyNumImplementedCores)
 	{
-		flag_SystemInitialised = false;
-		if (flag_ThreadInitialised[index] == true)
-		{
-			flag_SystemInitialised = true;
-		}
+		this->flag_SystemInitialised = bool(true);
+		this->flag_ThreadInitialised[4] = { true, true, true, true };//NUMBER OF CORES
 	}
-	return flag_SystemInitialised;
-}
 
-bool getFlag_ThreadInitialised(unsigned char coreId)
-{
-	return flag_ThreadInitialised[coreId];
-}
+	Control_Of_Execute::~Control_Of_Execute()
+	{
 
-void setConditionCodeOfThisThreadedCore(unsigned char coreId)
-{
-	//Todo
-	setFlag_ThreadInitialised(coreId);
-}
+	}
 
-void setFlag_ThreadInitialised(unsigned char coreId)
-{
-	flag_ThreadInitialised[coreId] = false;
+	bool Control_Of_Execute::getFlag_SystemInitialised(unsigned char* ptr_MyNumImplementedCores)
+	{
+		for (int index = 0; index < *ptr_MyNumImplementedCores; index++)
+		{
+			flag_SystemInitialised = false;
+			if (flag_ThreadInitialised[index] == true)
+			{
+				flag_SystemInitialised = true;
+			}
+		}
+		return flag_SystemInitialised;
+	}
+
+	bool Control_Of_Execute::getFlag_ThreadInitialised(unsigned char coreId)
+	{
+		return flag_ThreadInitialised[coreId];
+	}
+
+	void Control_Of_Execute::setConditionCodeOfThisThreadedCore(unsigned char coreId)
+	{
+		//Todo
+		setFlag_ThreadInitialised(coreId);
+	}
+
+	void Control_Of_Execute::setFlag_ThreadInitialised(unsigned char coreId)
+	{
+		flag_ThreadInitialised[coreId] = false;
+	}
 }

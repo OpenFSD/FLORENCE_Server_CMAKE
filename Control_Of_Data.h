@@ -3,7 +3,6 @@
 #include "Input.h"
 #include "Output.h"
 
-
 namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
     class Control_Of_Data

@@ -3,5 +3,6 @@
 
 namespace FLORENCE
 {
-	static class FLORENCE::Framework* ptr_Framework;
+
 }
+

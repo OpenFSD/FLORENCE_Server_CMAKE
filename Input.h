@@ -10,7 +10,7 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
         Input();
         virtual ~Input();
         void initialise_Control();
-        class InputSpace::Control_Of_Input* get_Control_Of_Input();
+        class Control_Of_Input* get_Control_Of_Input();
         class Praise0_Input* get_InputBufferSubset();//TODO CLASS T
         int* getPraiseEventId();
 
@@ -20,9 +20,9 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
     protected:
 
     private:
-        class InputSpace::Control_Of_Input* ptr_Control_Of_Input;
+        class Control_Of_Input* ptr_Control_Of_Input;
         class Praise0_Input* ptr_praiseInputBuffer_Subset;//TODO CLASS T
         static int* ptr_in_praiseEventId;
-                    
+
     };
 }

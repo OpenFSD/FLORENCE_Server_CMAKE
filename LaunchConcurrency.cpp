@@ -1,21 +1,21 @@
 #include "LaunchConcurrency.h"
 
-using FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace;
-
-LaunchConcurrency()
+namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace
+{
+    LaunchConcurrency::LaunchConcurrency()
 {
 
 }
 
-~LaunchConcurrency()
+    LaunchConcurrency::~LaunchConcurrency()
 {
-    delete ptr_Control_Of_LaunchConcurrency;
+    delete this->ptr_Control_Of_LaunchConcurrency;
 }
 
-void concurrent_Thread_Start(
+void LaunchConcurrency::concurrent_Thread_Start(
     class Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
     unsigned char* ptr_concurrent_CoreId,
-    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+    class FLORENCE::Framework::Server::Global* ptr_Global,
     unsigned char* ptr_NumImplementedCores
 )
 {
@@ -28,19 +28,19 @@ void concurrent_Thread_Start(
     ptr_Control_Of_LaunchConcurrency->setFlag_PraisingLaunch(false);
 }
 
-void initialise_Control(
-    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+void LaunchConcurrency::initialise_Control(
+    class FLORENCE::Framework::Server::Global* ptr_Global,
     unsigned char* ptr_MyNumImplementedCores
 )
 {
     this->ptr_Control_Of_LaunchConcurrency = new class Control_Of_LaunchConcurrency(ptr_Global, ptr_MyNumImplementedCores);
-    while (this->ptr_Control_Of_LaunchConcurrency == nullptr) { /* wait untill created */ }
+    while (this->ptr_Control_Of_LaunchConcurrency == NULL) { /* wait untill created */ }
 }
 
-void thread_End(
-    class Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
+void LaunchConcurrency::thread_End(
+    Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
     unsigned char* ptr_concurrent_CoreId,
-    class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
+    class FLORENCE::Framework::Server::Global* ptr_Global
 )
 {
     while (ptr_Control_Of_LaunchConcurrency->getFlag_PraisingLaunch() == true)
@@ -70,7 +70,7 @@ void thread_End(
     }
 }
 
-class Control_Of_LaunchConcurrency* get_Control_Of_LaunchConcurrency()
+Control_Of_LaunchConcurrency* LaunchConcurrency::get_Control_Of_LaunchConcurrency()
 {
     return this->ptr_Control_Of_LaunchConcurrency;
 }

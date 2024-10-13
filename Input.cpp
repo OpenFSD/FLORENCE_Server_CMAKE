@@ -1,51 +1,54 @@
 #include "Input.h"
 
-using FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace;
-
-int* ptr_in_praiseEventId = nullptr;
-
-Input()
+namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
-    this->ptr_praiseInputBuffer_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input();//TODO CLASS T
-    while (this->ptr_praiseInputBuffer_Subset == nullptr) { /* wait untill created */ }
-    int* ptr_in_praiseEventId = new int(0);
-    while (this->ptr_in_praiseEventId == nullptr) { /* wait untill created */ }
-}
+    class Control_Of_Input* ptr_Control_Of_Input = NULL;
+    class Praise0_Input* ptr_praiseInputBuffer_Subset = NULL;//TODO CLASS T
+    int* Input::ptr_in_praiseEventId = NULL;
 
-~Input()
-{
-    delete ptr_Control_Of_Input;
-    delete ptr_praiseInputBuffer_Subset;
-    delete ptr_in_praiseEventId;
-}
+    Input::Input()
+    {
+        this->ptr_praiseInputBuffer_Subset = new Praise0_Input();//TODO CLASS T
+        while (this->ptr_praiseInputBuffer_Subset == NULL) { /* wait untill created */ }
+        this->ptr_in_praiseEventId = new int(0);
+        while (this->ptr_in_praiseEventId == NULL) { /* wait untill created */ }
+    }
 
-void initialise_Control()
-{
-    this->ptr_Control_Of_Input = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input();
-    while (this->ptr_Control_Of_Input == nullptr) { /* wait untill created */ }
-}
+    Input::~Input()
+    {
+        delete ptr_Control_Of_Input;
+        delete ptr_praiseInputBuffer_Subset;
+        delete ptr_in_praiseEventId;
+    }
 
-class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input* get_Control_Of_Input()
-{
-    return this->ptr_Control_Of_Input;
-}
+    void Input::initialise_Control()
+    {
+        this->ptr_Control_Of_Input = new Input::Control_Of_Input();
+        while (this->ptr_Control_Of_Input == NULL) { /* wait untill created */ }
+    }
 
-int* getPraiseEventId()
-{
-    return this->ptr_in_praiseEventId;
-}
+    class Control_Of_Input* Input::get_Control_Of_Input()
+    {
+        return this->ptr_Control_Of_Input;
+    }
 
-class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* get_InputBufferSubset()
-{
-    return this->ptr_praiseInputBuffer_Subset;
-}
+    int* Input::getPraiseEventId()
+    {
+        return this->ptr_in_praiseEventId;
+    }
 
-void set_InputBuffer_SubSet(class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* value)
-{
-    this->ptr_praiseInputBuffer_Subset = value;
-}
+    class Praise0_Input* Input::get_InputBufferSubset()
+    {
+        return this->ptr_praiseInputBuffer_Subset;
+    }
 
-void setPraiseEventId(int value)
-{
-    this->ptr_in_praiseEventId = &value;
+    void Input::set_InputBuffer_SubSet(Praise0_Input* value)
+    {
+        this->ptr_praiseInputBuffer_Subset = value;
+    }
+
+    void Input::setPraiseEventId(int value)
+    {
+        this->ptr_in_praiseEventId = &value;
+    }
 }

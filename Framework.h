@@ -8,11 +8,11 @@ namespace FLORENCE
 	public:
 		Framework();
 		virtual ~Framework();
-		class FrameworkSpace::Server* get_Server();
+		static class Server* get_Server();
 
 	protected:
 
 	private:
-		class FrameworkSpace::Server* ptr_Server;
+		static class Server* ptr_Server;
 	};
 }

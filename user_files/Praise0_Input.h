@@ -1,30 +1,21 @@
 #pragma once
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
 {
-	namespace FrameworkSpace
+	class Praise0_Input
 	{
-		namespace ServerSpace
-		{
-			namespace DataSpace
-			{
-				class Praise0_Input
-				{
-				public:
-					Praise0_Input();
-					virtual ~Praise0_Input();
-					bool get_A();
-					bool get_B();
-					void set_A(bool value);
-					void set_B(bool value);
+	public:
+		Praise0_Input();
+		virtual ~Praise0_Input();
+		bool get_A();
+		bool get_B();
+		void set_A(bool value);
+		void set_B(bool value);
 
-				protected:
+	protected:
 
-				private:
-					static bool a;
-					static bool b;
-				};
-			}
-		}
-	}
+	private:
+		bool a;
+		bool b;
+	};
 }

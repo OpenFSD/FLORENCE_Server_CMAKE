@@ -2,30 +2,21 @@
 #include "Praise0_Input.h"
 #include "Praise0_Output.h"
 
-namespace FLORENCE
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace
 {
-    namespace FrameworkSpace
+    class Praise0_Algorithm
     {
-        namespace ServerSpace
-        {
-            namespace AlgorithmsSpace
-            {
-                class Praise0_Algorithm
-                {
-                public:
-                    Praise0_Algorithm();
-                    virtual ~Praise0_Algorithm();
-                    void do_Praise(
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_In_SubSet,
-                        class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* ptr_Out_SubSet
-                    );
+    public:
+        Praise0_Algorithm();
+        virtual ~Praise0_Algorithm();
+        void do_Praise(
+            class Praise0_Input* ptr_In_SubSet,
+            class Praise0_Output* ptr_Out_SubSet
+        );
 
-                protected:
+    protected:
 
-                private:
+    private:
 
-                };
-            }
-        }
-    }
+    };
 }

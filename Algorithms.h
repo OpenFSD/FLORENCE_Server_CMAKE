@@ -11,27 +11,27 @@ namespace FLORENCE::FrameworkSpace::ServerSpace
     public:
         Algorithms(unsigned char* ptr_NumberOfImplementedCores);
         virtual ~Algorithms();
-        class AlgorithmsSpace::Concurrent* get_Concurren_Array(unsigned char concurrent_coreId);
-        class AlgorithmsSpace::ListenRespond* get_ListenRespond();
+        class Concurrent* get_Concurren_Array(unsigned char concurrent_coreId);
+        class ListenRespond* get_ListenRespond();
 
-//===
-//===
-        class AlgorithmsSpace::Praise0_Algorithm* get_Praise0_Algorithm();
-//===
-//===
+        //===
+        //===
+        class Praise0_Algorithm* get_Praise0_Algorithm();
+        //===
+        //===
 
     protected:
 
     private:
-        class AlgorithmsSpace::Concurrent** ptr_Concurrent_Array;
-        class AlgorithmsSpace::Concurrent* ptr_Concurrent[3];
-        class AlgorithmsSpace::ListenRespond* ptr_ListenRespond;
-        class AlgorithmsSpace::Concurrent* ptr_New_Concurrent;
-//===
-//===
-        class AlgorithmsSpace::Praise0_Algorithm* ptr_Praise0_Algorithms;
-//===
-//===
+        class Concurrent** ptr_Concurrent_Array;
+        class Concurrent* ptr_Concurrent[3];
+        class ListenRespond* ptr_ListenRespond;
+        class Concurrent* ptr_New_Concurrent;
+        //===
+        //===
+        class Praise0_Algorithm* ptr_Praise0_Algorithms;
+        //===
+        //===
 
 
 

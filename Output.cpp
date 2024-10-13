@@ -1,53 +1,84 @@
-#include "Output.h"
+#include "WriteEnable.h"
 
-using FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace;
-
-int* ptr_out_PraiseEventId = nullptr;
-
-Output()
+namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace
 {
-    this->praiseOutputBuffer_Subset = new class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output();//ToDo CLASS T
-    while (this->praiseOutputBuffer_Subset == nullptr) { /* wait untill created */ }
-    int* ptr_out_PraiseEventId = new int(0);
-    while (this->ptr_out_PraiseEventId == nullptr) { /* wait untill created */ }
+    class Control_Of_Output* WriteEnable::ptr_Control_Of_Output = NULL;
+    class Praise0_Output* WriteEnable::praiseOutputBuffer_Subset = NULL;;//ToDo buffer
+    int* WriteEnable::ptr_out_PraiseEventId = NULL;;
+
+    WriteEnable::WriteEnable()
+    {
+        this->ptr_Control_Of_Output = new class Control_Of_Output();
+        this->praiseOutputBuffer_Subset = new class Praise0_Output();
+    }
+
+    WriteEnable::~WriteEnable()
+    {
+        delete this->ptr_Control_Of_WriteEnable;
+    }
+
+    void WriteEnable::initialise_Control(
+        FLORENCE::Framework::Server::Global* ptr_Global,
+        unsigned char* ptr_MyNumImplementedCores
+    )
+    {
+        this->ptr_Control_Of_WriteEnable = new class WriteEnable::Control_Of_WriteEnable(ptr_Global, ptr_MyNumImplementedCores);
+        while (this->ptr_Control_Of_WriteEnable == NULL) { /* wait untill created */ }
+    }
+
+    void WriteEnable::write_End(
+        WriteEnable::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
+        unsigned char* ptr_coreId,
+        unsigned char* ptr_MyNumImplementedCores,
+        FLORENCE::Framework::Server::Global* ptr_Global
+    )
+    {
+        for (unsigned char index = 0; index < 2; index++)
+        {
+            ptr_Control_Of_WriteEnable->setFlag_writeState(ptr_coreId, index, ptr_Global->getConst_Write_IDLE(index));
+        }
+        ptr_Control_Of_WriteEnable->set_new_coreIdForWritePraiseIndex(*ptr_Control_Of_WriteEnable->get_coreIdForWritePraiseIndex() + 1);
+        if (int(*ptr_Control_Of_WriteEnable->get_new_coreIdForWritePraiseIndex()) == 3)
+        {
+            ptr_Control_Of_WriteEnable->set_new_coreIdForWritePraiseIndex(0);
+        }
+        ptr_Control_Of_WriteEnable->writeQue_Update(
+            ptr_MyNumImplementedCores
+        );
+        ptr_Control_Of_WriteEnable->writeEnable_SortQue(
+            ptr_MyNumImplementedCores,
+            ptr_Global
+        );
+        ptr_Control_Of_WriteEnable->setFlag_readWrite_Open(false);
+    }
+    void WriteEnable::write_Start(
+        WriteEnable::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
+        unsigned char* ptr_coreId,
+        unsigned char* ptr_MyNumImplementedCores,
+        FLORENCE::Framework::Server::Global* ptr_Global
+    )
+    {
+        ptr_Control_Of_WriteEnable->writeEnable_Request(
+            ptr_coreId,
+            ptr_MyNumImplementedCores,
+            ptr_Global
+        );
+        ptr_Control_Of_WriteEnable->writeQue_Update(
+            ptr_MyNumImplementedCores
+        );
+        ptr_Control_Of_WriteEnable->writeEnable_SortQue(
+            ptr_MyNumImplementedCores,
+            ptr_Global
+        );
+        ptr_Control_Of_WriteEnable->writeEnable_Activate(
+            ptr_coreId,
+            ptr_Global,
+            ptr_MyNumImplementedCores
+        );
+    }
+
+    class Control_Of_WriteEnable* WriteEnable::get_Control_Of_WriteEnable()
+    {
+        return this->ptr_Control_Of_WriteEnable;
+    }
 }
-
-~Output()
-{
-    delete ptr_Control_Of_Output;
-    delete praiseOutputBuffer_Subset;
-    delete ptr_out_PraiseEventId;
-}
-
-void initialise_Control()
-{
-    this->ptr_Control_Of_Output = new class Control_Of_Output();
-    while (this->ptr_Control_Of_Output == nullptr) { /* wait untill created */ }
-}
-
-class Control_Of_Output* get_Control_Of_Output()
-{
-    return this->ptr_Control_Of_Output;
-}
-
-class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* get_OutputBuffer_Subset()
-{
-    return this->praiseOutputBuffer_Subset;
-}
-
-
-int* getPraiseEventId()
-{
-    return this->ptr_out_PraiseEventId;
-}
-
-void set_OutputBuffer_Subset(class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* value)
-{
-    this->praiseOutputBuffer_Subset = value;
-}
-
-void setPraiseEventId(int value)
-{
-    this->ptr_out_PraiseEventId = &value;
-}
-

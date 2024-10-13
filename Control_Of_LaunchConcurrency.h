@@ -8,21 +8,20 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency
     {
     public:
         Control_Of_LaunchConcurrency(
-            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+            FLORENCE::Framework::Server::Global* ptr_Global,
             unsigned char* ptr_NumImplementedCores
         );
         virtual ~Control_Of_LaunchConcurrency();
 
         void launchEnable_Activate(
-            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
-
+            FLORENCE::Framework::Server::Global* ptr_Global
         );
         void launchEnable_Request(
             unsigned char* concurrent_CoreId,
-            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
+            FLORENCE::Framework::Server::Global* ptr_Global
         );
         void launchEnable_SortQue(
-            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
+            FLORENCE::Framework::Server::Global* ptr_Global,
             unsigned char* ptr_NumImplementedCores
         );
         void launchQue_Update(

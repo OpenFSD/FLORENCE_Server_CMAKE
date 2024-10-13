@@ -1,33 +1,37 @@
 #include "Praise0_Algorithm.h"
 
-FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm::Praise0_Algorithm()
+namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace
 {
-}
 
-FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm::~Praise0_Algorithm()
-{
-}
+    Praise0_Algorithm::Praise0_Algorithm()
+    {
+    }
 
-void FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace::Praise0_Algorithm::do_Praise(
-    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_In_SubSet,
-    class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Output* ptr_Out_SubSet
-)
-{
-    bool result = false;
-    if (ptr_In_SubSet->get_A() == true && ptr_In_SubSet->get_B() == true)
+    Praise0_Algorithm::~Praise0_Algorithm()
     {
-        ptr_Out_SubSet->setResultForPraise_0(true);
     }
-    else if (ptr_In_SubSet->get_A() == true && ptr_In_SubSet->get_B() == false)
+
+    void Praise0_Algorithm::do_Praise(
+        Praise0_Input* ptr_In_SubSet,
+        Praise0_Output* ptr_Out_SubSet
+    )
     {
-        ptr_Out_SubSet->setResultForPraise_0(false);
-    }
-    else if (ptr_In_SubSet->get_A() == false && ptr_In_SubSet->get_B() == true)
-    {
-        ptr_Out_SubSet->setResultForPraise_0(false);
-    }
-    else if (ptr_In_SubSet->get_A() == false && ptr_In_SubSet->get_B() == false)
-    {
-        ptr_Out_SubSet->setResultForPraise_0(false);
+        bool result = false;
+        if (this->ptr_In_SubSet->get_A() == true && this->ptr_In_SubSet->get_B() == true)
+        {
+            this->ptr_Out_SubSet->setResultForPraise_0(true);
+        }
+        else if (this->ptr_In_SubSet->get_A() == true && this->ptr_In_SubSet->get_B() == false)
+        {
+            this->ptr_Out_SubSet->setResultForPraise_0(false);
+        }
+        else if (this->ptr_In_SubSet->get_A() == false && this->ptr_In_SubSet->get_B() == true)
+        {
+            this->ptr_Out_SubSet->setResultForPraise_0(false);
+        }
+        else if (this->ptr_In_SubSet->get_A() == false && this->ptr_In_SubSet->get_B() == false)
+        {
+            this->ptr_Out_SubSet->setResultForPraise_0(false);
+        }
     }
 }

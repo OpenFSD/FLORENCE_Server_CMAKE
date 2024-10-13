@@ -11,17 +11,17 @@ namespace FLORENCE::FrameworkSpace
     public:
         Server();
         virtual ~Server();
-        class ServerSpace::Algorithms* get_Algorithms();
-        class ServerSpace::Data* get_Data();
-        class ServerSpace::Execute* get_Execute();
-        class ServerSpace::Global* get_Global();
+        class Algorithms* get_Algorithms();
+        class Data* get_Data();
+        class Execute* get_Execute();
+        class Global* get_Global();
 
     protected:
 
     private:
-        class ServerSpace::Algorithms* ptr_Algorithms;
-        class ServerSpace::Data* ptr_Data;
-        class ServerSpace::Execute* ptr_Execute;
-        class ServerSpace::Global* ptr_Global;
+        class Algorithms* ptr_Algorithms;
+        class Data* ptr_Data;
+        class Execute* ptr_Execute;
+        class Global* ptr_Global;
     };
 }

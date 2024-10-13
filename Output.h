@@ -10,7 +10,7 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
         Output();
         virtual ~Output();
         void initialise_Control();
-        class OutputSpace::Control_Of_Output* get_Control_Of_Output();
+        class Control_Of_Output* get_Control_Of_Output();
         class Praise0_Output* get_OutputBuffer_Subset();//TODO CLASS T
         int* getPraiseEventId();
 
@@ -20,7 +20,7 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::DataSpace
     protected:
 
     private:
-        class OutputSpace::Control_Of_Output* ptr_Control_Of_Output;
+        class Control_Of_Output* ptr_Control_Of_Output;
         class Praise0_Output* praiseOutputBuffer_Subset;//ToDo buffer
         static int* ptr_out_PraiseEventId;
     };
