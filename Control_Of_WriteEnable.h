@@ -7,23 +7,23 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace
     {
     public:
         Control_Of_WriteEnable(
-            class FLORENCE::Framework::Server::Global* ptr_Global,
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
             unsigned char* ptr_MyNumImplementedCores
         );
         ~Control_Of_WriteEnable();
         void writeEnable_Activate(
             unsigned char* ptr_coreId,
-            class FLORENCE::Framework::Server::Global* ptr_Global,
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
             unsigned char* ptr_MyNumImplementedCores
         );
         void writeEnable_SortQue(
             unsigned char* ptr_MyNumImplementedCores,
-            class FLORENCE::Framework::Server::Global* ptr_Global
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
         );
         void writeEnable_Request(
             unsigned char* ptr_coreId,
             unsigned char* ptr_MyNumImplementedCores,
-            class FLORENCE::Framework::Server::Global* ptr_Global
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
         );
         void writeQue_Update(
             unsigned char* ptr_MyNumImplementedCores

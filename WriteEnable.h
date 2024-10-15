@@ -10,20 +10,20 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace
         WriteEnable();
         virtual ~WriteEnable();
         void initialise_Control(
-            FLORENCE::Framework::Server::Global* ptr_Global,
+            FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global,
             unsigned char* ptr_MyNumImplementedCores
         );
         void write_End(
             class Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
             unsigned char* ptr_coreId,
             unsigned char* ptr_MyNumImplementedCores,
-            class FLORENCE::Framework::Server::Global* ptr_Global
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
         );
         void write_Start(
             class Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
             unsigned char* ptr_coreId,
             unsigned char* ptr_MyNumImplementedCores,
-            class FLORENCE::Framework::Server::Global* ptr_Global
+            class FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global
         );
 
         Control_Of_WriteEnable* get_Control_Of_WriteEnable();

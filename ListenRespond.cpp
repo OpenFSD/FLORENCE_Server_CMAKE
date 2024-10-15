@@ -1,4 +1,5 @@
 #include "ListenRespond.h"
+#include "ListenRespond.h"
 
 namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace
 {
@@ -21,25 +22,25 @@ namespace FLORENCE::FrameworkSpace::ServerSpace::AlgorithmsSpace
     }
 
     void ListenRespond::thread_IO_ListenDistribute(
-        unsigned char coreId,
-        unsigned char* ptr_MyNumImplementedCores,
-        class FLORENCE::Framework::Server::Algorithms::Concurrent* ptr_Concurrent,
-        class FLORENCE::Framework::Server::Algorithms::Concurrent::Control_Of_Concurrent* ptr_Control_Of_Concurrent,
-        class FLORENCE::Framework::Server::Execute::Control_Of_Execute* ptr_Control_Of_Execute,
-        class FLORENCE::Framework::Server::Data::Control_Of_Data* ptr_Control_Of_Data,
-        class FLORENCE::Framework::Server::Data::Input::Control_Of_Input* ptr_Control_Of_Input,
-        class FLORENCE::Framework::Server::Execute::LaunchConcurrency::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency,
-        class Control_Of_ListenRespond* ptr_Control_Of_ListenRespond,
-        class FLORENCE::Framework::Server::Data::Output::Control_Of_Output* ptr_Control_Of_Output,
-        class FLORENCE::Framework::Server::Execute::WriteEnable::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable,
-        class FLORENCE::Framework::Server::Data* ptr_Data,
-        class FLORENCE::Framework::Server::Global* ptr_Global,
-        std::vector<class FLORENCE::Framework::Server::Data::Input*>* ptr_InputStack,
-        class FLORENCE::Framework::Server::Execute::LaunchConcurrency* ptr_LaunchConcurrency,
-        std::vector<class FLORENCE::Framework::Server::Data::Output*>* ptr_OutputStack,
-        class FLORENCE::Framework::Server::Data::Input* ptr_PraiseBuffer,
-        class FLORENCE::Framework::Server::Data::Praise0_Input* ptr_PraiseBuffer_Subset,
-        class FLORENCE::Framework::Server::Execute::WriteEnable0* ptr_WriteEnable
+        unsigned char coreId, 
+        unsigned char* ptr_MyNumImplementedCores, 
+        Concurrent* ptr_Concurrent, 
+        ConcurrentSpace::Control_Of_Concurrent* ptr_Control_Of_Concurrent, 
+        FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::Control_Of_Execute* ptr_Control_Of_Execute, 
+        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Control_Of_Data* ptr_Control_Of_Data, 
+        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::InputSpace::Control_Of_Input* ptr_Control_Of_Input, 
+        FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrencySpace::Control_Of_LaunchConcurrency* ptr_Control_Of_LaunchConcurrency, 
+        Control_Of_ListenRespond* ptr_Control_Of_ListenRespond, 
+        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::OutputSpace::Control_Of_Output* ptr_Control_Of_Output, 
+        FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnableSpace::Control_Of_WriteEnable* ptr_Control_Of_WriteEnable, 
+        FLORENCE::FrameworkSpace::ServerSpace::Data* ptr_Data, 
+        FLORENCE::FrameworkSpace::ServerSpace::Global* ptr_Global, 
+        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input*>* ptr_InputStack, 
+        FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::LaunchConcurrency* ptr_LaunchConcurrency, 
+        std::vector<class FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Output*>* ptr_OutputStack, 
+        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Input* ptr_PraiseBuffer, 
+        FLORENCE::FrameworkSpace::ServerSpace::DataSpace::Praise0_Input* ptr_PraiseBuffer_Subset, 
+        FLORENCE::FrameworkSpace::ServerSpace::ExecuteSpace::WriteEnable* ptr_WriteEnable
     )
     {
         ptr_Control_Of_Execute->setConditionCodeOfThisThreadedCore(coreId);
