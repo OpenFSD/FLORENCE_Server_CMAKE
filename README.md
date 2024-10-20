@@ -1,8 +1,7 @@
 # FLORENCE in CMAKE
 
 ## Debuging Link Errors
-- LNK2019 x5
-- LNK1120 x1
+
 
 ## Server and Buffer, For Full Stack Development
 FLORENCE - Architecture.PNG => https://drive.google.com/file/d/1AzNi2YrukRCVLelxfj8uvzhFDI4ytWBs/view?usp=sharing
